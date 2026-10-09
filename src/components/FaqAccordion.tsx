@@ -49,27 +49,33 @@ export function FaqAccordion() {
   };
 
   return (
-    <section className="section-padding" aria-label="Frequently Asked Questions">
-      <div className="container-narrow">
-        <div className="section-header">
-          <p className="section-eyebrow">Common Questions</p>
-          <h2 className="section-title">Frequently Asked Questions</h2>
-          <p className="section-desc">Quick answers to help you get started right away.</p>
+    <section className="py-12 sm:py-16 border-t border-black/[0.08]" aria-label="Frequently Asked Questions">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-10">
+          <p className="font-mono text-[11.5px] font-semibold text-[#A86D3F] uppercase tracking-wider mb-2">
+            Common Questions
+          </p>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#1A1A1A] leading-tight mb-2">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-sm text-[#4A4E4A]">Quick answers to help you get started right away.</p>
         </div>
 
-        <div className="faq-list">
+        <div className="flex flex-col gap-3">
           {FAQS.map((faq) => {
             const isOpen = openId === faq.id;
             return (
-              <div key={faq.id} className={`faq-item ${isOpen ? 'is-open' : ''}`}>
+              <div key={faq.id} className="bg-white border border-black/10 hover:border-[#1B4D3E]/30 rounded-md overflow-hidden transition-colors">
                 <button
-                  className="faq-trigger"
+                  className="w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left font-display text-base font-bold text-[#1A1A1A] min-h-[48px]"
                   aria-expanded={isOpen}
                   onClick={() => toggle(faq.id)}
                 >
                   <span>{faq.question}</span>
                   <svg
-                    className="faq-icon-chevron"
+                    className={`w-4 h-4 text-[#717571] shrink-0 transition-transform duration-200 ${
+                      isOpen ? 'rotate-180 text-[#1B4D3E]' : ''
+                    }`}
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -81,7 +87,11 @@ export function FaqAccordion() {
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button>
-                <div className="faq-content">{faq.answer}</div>
+                {isOpen && (
+                  <div className="px-4 pb-4 sm:px-5 sm:pb-5 text-sm text-[#4A4E4A] leading-relaxed border-t border-black/5 pt-3">
+                    {faq.answer}
+                  </div>
+                )}
               </div>
             );
           })}

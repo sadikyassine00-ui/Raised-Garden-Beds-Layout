@@ -60,62 +60,82 @@ export function InteractivePreview() {
   const currentPlant = PLANT_DATA[selectedCrop] || PLANT_DATA.tomato;
 
   return (
-    <section className="section-padding" aria-label="Interactive Sample Previews">
-      <div className="container">
-        <div className="section-header">
-          <p className="section-eyebrow">Sample Preview</p>
-          <h2 className="section-title">Explore What's Inside Before You Buy</h2>
-          <p className="section-desc">
+    <section className="py-12 sm:py-16 border-t border-black/[0.08]" aria-label="Interactive Sample Previews">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
+          <p className="font-mono text-[11.5px] font-semibold text-[#A86D3F] uppercase tracking-wider mb-2">
+            Sample Preview
+          </p>
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A1A1A] leading-tight mb-2.5">
+            Explore What's Inside Before You Buy
+          </h2>
+          <p className="text-sm sm:text-base text-[#4A4E4A] leading-relaxed">
             Test drive the 4'x8' layout grid, companion matrix, and lumber cut sheet below.
           </p>
         </div>
 
-        <div className="preview-container">
+        <div className="bg-white border border-black/10 rounded-lg shadow-sm overflow-hidden">
           {/* Navigation Tabs */}
-          <div className="preview-tabs-nav" role="tablist">
+          <div className="flex overflow-x-auto bg-[#F5F4F0] border-b border-black/10 scrollbar-none" role="tablist">
             <button
-              className={`preview-tab-btn ${activeTab === 'tab-layout' ? 'is-active' : ''}`}
+              className={`flex-1 min-w-[130px] sm:min-w-[150px] py-3.5 px-4 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border-b-2 transition-colors min-h-[48px] whitespace-nowrap ${
+                activeTab === 'tab-layout'
+                  ? 'text-[#1B4D3E] bg-white border-[#1B4D3E]'
+                  : 'text-[#4A4E4A] border-transparent hover:text-[#1A1A1A]'
+              }`}
               role="tab"
               aria-selected={activeTab === 'tab-layout'}
               onClick={() => setActiveTab('tab-layout')}
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="2"></rect>
                 <path d="M3 9h18M3 15h18M9 3v18M15 3v18"></path>
               </svg>
               <span>4'x8' Grid Layout</span>
             </button>
             <button
-              className={`preview-tab-btn ${activeTab === 'tab-companion' ? 'is-active' : ''}`}
+              className={`flex-1 min-w-[130px] sm:min-w-[150px] py-3.5 px-4 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border-b-2 transition-colors min-h-[48px] whitespace-nowrap ${
+                activeTab === 'tab-companion'
+                  ? 'text-[#1B4D3E] bg-white border-[#1B4D3E]'
+                  : 'text-[#4A4E4A] border-transparent hover:text-[#1A1A1A]'
+              }`}
               role="tab"
               aria-selected={activeTab === 'tab-companion'}
               onClick={() => setActiveTab('tab-companion')}
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"></circle>
                 <path d="M8 12h8M12 8v8"></path>
               </svg>
               <span>Companion Matrix</span>
             </button>
             <button
-              className={`preview-tab-btn ${activeTab === 'tab-cutlist' ? 'is-active' : ''}`}
+              className={`flex-1 min-w-[130px] sm:min-w-[150px] py-3.5 px-4 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border-b-2 transition-colors min-h-[48px] whitespace-nowrap ${
+                activeTab === 'tab-cutlist'
+                  ? 'text-[#1B4D3E] bg-white border-[#1B4D3E]'
+                  : 'text-[#4A4E4A] border-transparent hover:text-[#1A1A1A]'
+              }`}
               role="tab"
               aria-selected={activeTab === 'tab-cutlist'}
               onClick={() => setActiveTab('tab-cutlist')}
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
               </svg>
               <span>Cut List &amp; Soil</span>
             </button>
             <button
-              className={`preview-tab-btn ${activeTab === 'tab-timeline' ? 'is-active' : ''}`}
+              className={`flex-1 min-w-[130px] sm:min-w-[150px] py-3.5 px-4 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border-b-2 transition-colors min-h-[48px] whitespace-nowrap ${
+                activeTab === 'tab-timeline'
+                  ? 'text-[#1B4D3E] bg-white border-[#1B4D3E]'
+                  : 'text-[#4A4E4A] border-transparent hover:text-[#1A1A1A]'
+              }`}
               role="tab"
               aria-selected={activeTab === 'tab-timeline'}
               onClick={() => setActiveTab('tab-timeline')}
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <rect x="3" y="4" width="18" height="18" rx="2"></rect>
                 <line x1="16" y1="2" x2="16" y2="6"></line>
                 <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -125,362 +145,265 @@ export function InteractivePreview() {
           </div>
 
           {/* TAB 1: 4x8 GRID */}
-          <div
-            id="tab-layout"
-            className={`preview-tab-panel ${activeTab === 'tab-layout' ? 'is-active' : ''}`}
-            role="tabpanel"
-          >
-            <div className="grid-preview-header">
-              <div className="grid-title-group">
-                <h4>4' x 8' High-Yield Raised Bed Grid</h4>
-                <p>Tap any square to view spacing, density, and companion benefits.</p>
+          {activeTab === 'tab-layout' && (
+            <div className="p-4 sm:p-6 lg:p-8" role="tabpanel">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-4">
+                <div>
+                  <h4 className="font-display text-base sm:text-lg font-bold text-[#1A1A1A]">
+                    4' x 8' High-Yield Raised Bed Grid
+                  </h4>
+                  <p className="text-xs sm:text-sm text-[#717571]">
+                    Tap any square to view spacing, density, and companion benefits.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#F5F4F0] border border-black/10 font-mono text-[11px]">
+                    <span className="w-2 h-2 rounded-full bg-[#1B4D3E]"></span> Trellised
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#F5F4F0] border border-black/10 font-mono text-[11px]">
+                    <span className="w-2 h-2 rounded-full bg-[#C88A58]"></span> Heavy Feeder
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#F5F4F0] border border-black/10 font-mono text-[11px]">
+                    <span className="w-2 h-2 rounded-full bg-[#E5A118]"></span> Companion Ally
+                  </span>
+                </div>
               </div>
-              <div className="grid-legend">
-                <span className="legend-tag">
-                  <span className="legend-dot" style={{ background: '#1B4D3E' }}></span> Trellised
-                </span>
-                <span className="legend-tag">
-                  <span className="legend-dot" style={{ background: '#C88A58' }}></span> Heavy Feeder
-                </span>
-                <span className="legend-tag">
-                  <span className="legend-dot" style={{ background: '#E5A118' }}></span> Companion Ally
-                </span>
+
+              {/* 32 Square Foot Garden Bed Matrix */}
+              <div className="bg-[#FAF7F2] border-4 border-[#C88A58] rounded-md p-2.5 sm:p-3.5 shadow-inner">
+                <div className="flex justify-between items-center font-mono text-[10.5px] font-semibold text-[#A86D3F] mb-2 px-1">
+                  <span>NORTH (Trellis Side)</span>
+                  <span>4 FT x 8 FT CEDAR BED</span>
+                  <span>SUN EXPOSURE</span>
+                </div>
+
+                <div className="grid grid-cols-4 sm:grid-cols-8 gap-1.5">
+                  {BED_CELLS.map((cell) => {
+                    const isSelected = selectedCellId === cell.id;
+                    return (
+                      <button
+                        key={cell.id}
+                        className={`bg-white border rounded p-1.5 flex flex-col items-center justify-center text-center transition-all min-h-[68px] ${
+                          isSelected
+                            ? 'border-[#1B4D3E] bg-[#E8F3EE] ring-2 ring-[#1B4D3E] scale-[1.02]'
+                            : 'border-black/15 hover:border-[#1B4D3E] hover:bg-[#1B4D3E]/5'
+                        }`}
+                        onClick={() => {
+                          setSelectedCellId(cell.id);
+                          setSelectedCrop(cell.crop);
+                        }}
+                        aria-label={`${cell.name} square`}
+                      >
+                        <span className="text-base sm:text-lg mb-0.5">{cell.icon}</span>
+                        <span className="text-[11px] font-semibold text-[#1A1A1A] leading-tight">
+                          {cell.name}
+                        </span>
+                        <span className="font-mono text-[9px] text-[#717571] mt-0.5">
+                          {cell.qty}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className="flex justify-between items-center font-mono text-[10.5px] font-semibold text-[#A86D3F] mt-2 px-1">
+                  <span>SOUTH (Front / Low Tier)</span>
+                  <span>NO SHADOW ON COMPACT CROPS</span>
+                  <span>MAXIMUM SUNLIGHT</span>
+                </div>
+              </div>
+
+              {/* Plant Detail Inspection Box */}
+              <div className="mt-4 bg-[#F5F4F0] border border-black/10 rounded-md p-3.5 sm:p-4 flex flex-col gap-1.5">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                  <span className="font-display text-base font-bold text-[#1B4D3E] inspect-name">
+                    {currentPlant.name}
+                  </span>
+                  <span className="font-mono text-xs font-semibold text-[#A86D3F] inspect-density">
+                    {currentPlant.density} <span className="opacity-40">/</span> {currentPlant.days}
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm text-[#4A4E4A] inspect-notes">
+                  {currentPlant.notes}
+                </p>
               </div>
             </div>
-
-            {/* 32-Cell Raised Bed Matrix */}
-            <div className="garden-bed-frame">
-              <div className="bed-compass-marker">
-                <span>NORTH (Trellis Side)</span>
-                <span>4 FT x 8 FT CEDAR BED</span>
-                <span>SUN EXPOSURE</span>
-              </div>
-
-              <div className="sfg-grid-matrix" id="garden-grid">
-                {BED_CELLS.map((cell) => (
-                  <button
-                    key={cell.id}
-                    className={`grid-cell ${selectedCellId === cell.id ? 'is-selected' : ''}`}
-                    onClick={() => {
-                      setSelectedCellId(cell.id);
-                      setSelectedCrop(cell.crop);
-                    }}
-                    aria-label={`${cell.name} square`}
-                  >
-                    <span className="cell-plant-icon">{cell.icon}</span>
-                    <span className="cell-plant-name">{cell.name}</span>
-                    <span className="cell-plant-qty">{cell.qty}</span>
-                  </button>
-                ))}
-              </div>
-
-              <div className="bed-compass-marker" style={{ marginTop: '8px', marginBottom: 0 }}>
-                <span>SOUTH (Front / Low Tier)</span>
-                <span>NO SHADOW ON COMPACT CROPS</span>
-                <span>MAXIMUM SUNLIGHT</span>
-              </div>
-            </div>
-
-            {/* Plant Detail Inspect Box */}
-            <div className="plant-inspect-box">
-              <div className="inspect-header">
-                <span className="inspect-name">{currentPlant.name}</span>
-                <span className="inspect-density">
-                  {currentPlant.density} / {currentPlant.days}
-                </span>
-              </div>
-              <p className="inspect-notes">{currentPlant.notes}</p>
-            </div>
-          </div>
+          )}
 
           {/* TAB 2: COMPANION MATRIX */}
-          <div
-            id="tab-companion"
-            className={`preview-tab-panel ${activeTab === 'tab-companion' ? 'is-active' : ''}`}
-            role="tabpanel"
-          >
-            <div className="table-responsive">
-              <table className="companion-table">
+          {activeTab === 'tab-companion' && (
+            <div className="p-4 sm:p-6 lg:p-8 overflow-x-auto" role="tabpanel">
+              <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[500px]">
                 <thead>
-                  <tr>
-                    <th>Vegetable</th>
-                    <th>Good Neighbors (Allies)</th>
-                    <th>Bad Neighbors (Avoid)</th>
-                    <th>Garden Benefit</th>
+                  <tr className="bg-[#F5F4F0] border-b-2 border-black/10">
+                    <th className="py-2.5 px-3 font-mono text-[11px] font-semibold uppercase text-[#717571]">Vegetable</th>
+                    <th className="py-2.5 px-3 font-mono text-[11px] font-semibold uppercase text-[#717571]">Good Neighbors (Allies)</th>
+                    <th className="py-2.5 px-3 font-mono text-[11px] font-semibold uppercase text-[#717571]">Bad Neighbors (Avoid)</th>
+                    <th className="py-2.5 px-3 font-mono text-[11px] font-semibold uppercase text-[#717571]">Garden Benefit</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="divide-y divide-black/[0.08]">
                   <tr>
-                    <td><span className="plant-pill">Tomatoes</span></td>
-                    <td>
-                      <span className="tag-good">Basil</span>{' '}
-                      <span className="tag-good">Marigolds</span>{' '}
-                      <span className="tag-good">Carrots</span>
+                    <td className="py-3 px-3 font-semibold text-[#1A1A1A]">Tomatoes</td>
+                    <td className="py-3 px-3">
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded mr-1">Basil</span>
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded mr-1">Marigolds</span>
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded">Carrots</span>
                     </td>
-                    <td>
-                      <span className="tag-bad">Fennel</span>{' '}
-                      <span className="tag-bad">Potatoes</span>{' '}
-                      <span className="tag-bad">Corn</span>
+                    <td className="py-3 px-3">
+                      <span className="inline-block bg-red-50 text-red-700 text-xs font-medium px-2 py-0.5 rounded mr-1">Fennel</span>
+                      <span className="inline-block bg-red-50 text-red-700 text-xs font-medium px-2 py-0.5 rounded mr-1">Potatoes</span>
+                      <span className="inline-block bg-red-50 text-red-700 text-xs font-medium px-2 py-0.5 rounded">Corn</span>
                     </td>
-                    <td>Basil repels hornworms and improves flavor; marigolds deter nematodes.</td>
+                    <td className="py-3 px-3 text-[#4A4E4A]">Basil repels hornworms; marigolds secrete root compounds repelling nematodes.</td>
                   </tr>
                   <tr>
-                    <td><span className="plant-pill">Bell Peppers</span></td>
-                    <td>
-                      <span className="tag-good">Onions</span>{' '}
-                      <span className="tag-good">Basil</span>{' '}
-                      <span className="tag-good">Carrots</span>
+                    <td className="py-3 px-3 font-semibold text-[#1A1A1A]">Bell Peppers</td>
+                    <td className="py-3 px-3">
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded mr-1">Onions</span>
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded mr-1">Basil</span>
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded">Carrots</span>
                     </td>
-                    <td>
-                      <span className="tag-bad">Beans</span>{' '}
-                      <span className="tag-bad">Brassicas</span>
+                    <td className="py-3 px-3">
+                      <span className="inline-block bg-red-50 text-red-700 text-xs font-medium px-2 py-0.5 rounded mr-1">Beans</span>
+                      <span className="inline-block bg-red-50 text-red-700 text-xs font-medium px-2 py-0.5 rounded">Brassicas</span>
                     </td>
-                    <td>Dense canopy provides micro-shade, holding soil moisture.</td>
+                    <td className="py-3 px-3 text-[#4A4E4A]">Dense leaf canopy creates cool micro-climate, preserving critical root moisture.</td>
                   </tr>
                   <tr>
-                    <td><span className="plant-pill">Carrots</span></td>
-                    <td>
-                      <span className="tag-good">Lettuce</span>{' '}
-                      <span className="tag-good">Rosemary</span>{' '}
-                      <span className="tag-good">Chives</span>
+                    <td className="py-3 px-3 font-semibold text-[#1A1A1A]">Carrots</td>
+                    <td className="py-3 px-3">
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded mr-1">Lettuce</span>
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded mr-1">Rosemary</span>
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded">Chives</span>
                     </td>
-                    <td>
-                      <span className="tag-bad">Dill</span>{' '}
-                      <span className="tag-bad">Parsnips</span>
+                    <td className="py-3 px-3">
+                      <span className="inline-block bg-red-50 text-red-700 text-xs font-medium px-2 py-0.5 rounded mr-1">Dill</span>
+                      <span className="inline-block bg-red-50 text-red-700 text-xs font-medium px-2 py-0.5 rounded">Parsnips</span>
                     </td>
-                    <td>Chives and rosemary deter the destructive carrot rust fly.</td>
+                    <td className="py-3 px-3 text-[#4A4E4A]">Rosemary and chive scents mask carrot root foliage from destructive rust flies.</td>
                   </tr>
                   <tr>
-                    <td><span className="plant-pill">Bush Beans</span></td>
-                    <td>
-                      <span className="tag-good">Cucumbers</span>{' '}
-                      <span className="tag-good">Corn</span>{' '}
-                      <span className="tag-good">Celery</span>
+                    <td className="py-3 px-3 font-semibold text-[#1A1A1A]">Bush Beans</td>
+                    <td className="py-3 px-3">
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded mr-1">Cucumbers</span>
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded mr-1">Corn</span>
+                      <span className="inline-block bg-[#E8F3EE] text-[#1B4D3E] text-xs font-medium px-2 py-0.5 rounded">Celery</span>
                     </td>
-                    <td>
-                      <span className="tag-bad">Onions</span>{' '}
-                      <span className="tag-bad">Garlic</span>{' '}
-                      <span className="tag-bad">Chives</span>
+                    <td className="py-3 px-3">
+                      <span className="inline-block bg-red-50 text-red-700 text-xs font-medium px-2 py-0.5 rounded mr-1">Onions</span>
+                      <span className="inline-block bg-red-50 text-red-700 text-xs font-medium px-2 py-0.5 rounded mr-1">Garlic</span>
+                      <span className="inline-block bg-red-50 text-red-700 text-xs font-medium px-2 py-0.5 rounded">Chives</span>
                     </td>
-                    <td>Legume nodules fix atmospheric nitrogen directly into the root zone.</td>
-                  </tr>
-                  <tr>
-                    <td><span className="plant-pill">Lettuce &amp; Greens</span></td>
-                    <td>
-                      <span className="tag-good">Radishes</span>{' '}
-                      <span className="tag-good">Carrots</span>{' '}
-                      <span className="tag-good">Strawberries</span>
-                    </td>
-                    <td>
-                      <span className="tag-bad">Broccoli</span>
-                    </td>
-                    <td>Fast shallow roots cover bare soil, suppressing weed seed emergence.</td>
+                    <td className="py-3 px-3 text-[#4A4E4A]">Nitrogen-fixing bacteria nodules enrich bed soil for adjacent heavy feeder crops.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-          </div>
+          )}
 
           {/* TAB 3: CUT LIST */}
-          <div
-            id="tab-cutlist"
-            className={`preview-tab-panel ${activeTab === 'tab-cutlist' ? 'is-active' : ''}`}
-            role="tabpanel"
-          >
-            <div className="cutlist-diagram">
-              <div className="cutlist-board-schematic">
-                <h5
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '16px',
-                    marginBottom: '12px',
-                    color: 'var(--ink-primary)',
-                  }}
-                >
-                  4'x8' Bed Lumber Cutting Pattern
-                </h5>
-                <div className="schematic-item">
-                  <div className="schematic-label">
-                    <span>(6 pcs) 2" x 6" x 8' Cedar Long Sides</span>
-                    <span>8'-0" (No Cut)</span>
-                  </div>
-                  <div className="schematic-board">8'-0" FULL LENGTH</div>
-                </div>
-                <div className="schematic-item">
-                  <div className="schematic-label">
-                    <span>(3 pcs) 2" x 6" x 8' Cedar Cut in Half</span>
-                    <span>4'-0" + 4'-0" End Pieces</span>
-                  </div>
-                  <div
-                    className="schematic-board"
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: '1fr 1fr',
-                      gap: '4px',
-                      padding: '2px',
-                    }}
-                  >
-                    <div
-                      style={{
-                        background: 'rgba(0,0,0,0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      4'-0" END
+          {activeTab === 'tab-cutlist' && (
+            <div className="p-4 sm:p-6 lg:p-8" role="tabpanel">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div className="lg:col-span-7 bg-[#FAF7F2] border border-[#C88A58]/30 rounded-md p-4">
+                  <h5 className="font-display text-sm sm:text-base font-bold text-[#1A1A1A] mb-3">
+                    4'x8' Bed Lumber Cutting Pattern
+                  </h5>
+                  <div className="space-y-3 font-mono text-xs">
+                    <div>
+                      <div className="flex justify-between font-semibold text-[#A86D3F] mb-1">
+                        <span>(6 pcs) 2" x 6" x 8' Cedar Long Sides</span>
+                        <span>8'-0" (No Cut)</span>
+                      </div>
+                      <div className="h-6 bg-[#DEB887] border border-[#C88A58] rounded flex items-center justify-center font-semibold text-[#5C3A1E] text-[10px]">
+                        8'-0" FULL LENGTH
+                      </div>
                     </div>
-                    <div
-                      style={{
-                        background: 'rgba(0,0,0,0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      4'-0" END
+                    <div>
+                      <div className="flex justify-between font-semibold text-[#A86D3F] mb-1">
+                        <span>(3 pcs) 2" x 6" x 8' Cedar Cut in Half</span>
+                        <span>4'-0" + 4'-0" End Pieces</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-1 h-6 bg-[#DEB887] border border-[#C88A58] rounded p-0.5 font-semibold text-[#5C3A1E] text-[10px]">
+                        <div className="bg-black/10 flex items-center justify-center">4'-0" END</div>
+                        <div className="bg-black/10 flex items-center justify-center">4'-0" END</div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between font-semibold text-[#A86D3F] mb-1">
+                        <span>(1 pc) 4" x 4" x 6' Post (Corner Stakes)</span>
+                        <span>(4) 15" Corner Posts</span>
+                      </div>
+                      <div className="grid grid-cols-4 gap-1 h-6 bg-[#DEB887] border border-[#C88A58] rounded p-0.5 font-semibold text-[#5C3A1E] text-[9px]">
+                        <div className="bg-black/10 flex items-center justify-center">15" POST</div>
+                        <div className="bg-black/10 flex items-center justify-center">15" POST</div>
+                        <div className="bg-black/10 flex items-center justify-center">15" POST</div>
+                        <div className="bg-black/10 flex items-center justify-center">15" POST</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="schematic-item">
-                  <div className="schematic-label">
-                    <span>(1 pc) 4" x 4" x 6' Post (Corner Stakes)</span>
-                    <span>(4) 15" Corner Posts</span>
-                  </div>
-                  <div
-                    className="schematic-board"
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(4, 1fr)',
-                      gap: '3px',
-                      padding: '2px',
-                    }}
-                  >
-                    <div
-                      style={{
-                        background: 'rgba(0,0,0,0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '9px',
-                      }}
-                    >
-                      15" POST
-                    </div>
-                    <div
-                      style={{
-                        background: 'rgba(0,0,0,0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '9px',
-                      }}
-                    >
-                      15" POST
-                    </div>
-                    <div
-                      style={{
-                        background: 'rgba(0,0,0,0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '9px',
-                      }}
-                    >
-                      15" POST
-                    </div>
-                    <div
-                      style={{
-                        background: 'rgba(0,0,0,0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '9px',
-                      }}
-                    >
-                      15" POST
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div className="materials-checklist">
-                <div className="material-item">
-                  <h6 className="material-item-title">Hardware Fasteners</h6>
-                  <p className="material-item-detail">
-                    #9 3" Exterior polymer-coated ceramic deck screws (Box of 75 pcs)
-                  </p>
-                </div>
-                <div className="material-item">
-                  <h6 className="material-item-title">Soil Volume Calculation</h6>
-                  <p className="material-item-detail">
-                    4' × 8' × 1' depth = 32 cu. ft. (1.19 cubic yards total fill)
-                  </p>
-                </div>
-                <div className="material-item">
-                  <h6 className="material-item-title">Recommended Soil Mix Recipe</h6>
-                  <p className="material-item-detail">
-                    1/3 Blended Compost + 1/3 Peat Moss / Coco Coir + 1/3 Coarse Horticultural
-                    Vermiculite
-                  </p>
+                <div className="lg:col-span-5 flex flex-col gap-2.5">
+                  <div className="bg-[#F5F4F0] border border-black/10 rounded-md p-3">
+                    <h6 className="font-display text-xs sm:text-sm font-bold text-[#1A1A1A]">Hardware Fasteners</h6>
+                    <p className="font-mono text-xs text-[#4A4E4A] mt-0.5">#9 3" Exterior polymer-coated ceramic deck screws (Box of 75 pcs)</p>
+                  </div>
+                  <div className="bg-[#F5F4F0] border border-black/10 rounded-md p-3">
+                    <h6 className="font-display text-xs sm:text-sm font-bold text-[#1A1A1A]">Soil Volume Calculation</h6>
+                    <p className="font-mono text-xs text-[#4A4E4A] mt-0.5">4' × 8' × 1' depth = 32 cu. ft. (1.19 cubic yards total fill)</p>
+                  </div>
+                  <div className="bg-[#F5F4F0] border border-black/10 rounded-md p-3">
+                    <h6 className="font-display text-xs sm:text-sm font-bold text-[#1A1A1A]">Recommended Soil Recipe</h6>
+                    <p className="text-xs text-[#4A4E4A] mt-0.5">1/3 Blended Compost + 1/3 Peat Moss / Coco Coir + 1/3 Coarse Horticultural Vermiculite</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* TAB 4: TIMELINE */}
-          <div
-            id="tab-timeline"
-            className={`preview-tab-panel ${activeTab === 'tab-timeline' ? 'is-active' : ''}`}
-            role="tabpanel"
-          >
-            <div className="timeline-block">
-              <div className="timeline-phase">
-                <div className="phase-marker">
-                  <div className="phase-dot"></div>
-                  <div className="phase-line"></div>
+          {activeTab === 'tab-timeline' && (
+            <div className="p-4 sm:p-6 lg:p-8" role="tabpanel">
+              <div className="flex flex-col gap-4">
+                <div className="flex gap-3">
+                  <div className="flex flex-col items-center">
+                    <div className="w-3.5 h-3.5 rounded-full bg-[#1B4D3E] ring-2 ring-white shadow-xs"></div>
+                    <div className="w-0.5 flex-1 bg-black/15 mt-1"></div>
+                  </div>
+                  <div className="bg-[#F5F4F0] border border-black/10 rounded-md p-3.5 flex-1">
+                    <span className="font-mono text-[11px] font-semibold text-[#A86D3F] uppercase">March - April (Early Spring)</span>
+                    <h5 className="font-display text-sm sm:text-base font-bold text-[#1A1A1A] my-1">Phase 1: Cold-Tolerant Kickoff</h5>
+                    <p className="text-xs sm:text-sm text-[#4A4E4A]">Direct-sow radishes, spinach, butterhead lettuce, and early peas. Withstands morning frost for crisp spring harvests.</p>
+                  </div>
                 </div>
-                <div className="phase-content">
-                  <span className="phase-date">March - April (Early Spring)</span>
-                  <h5 className="phase-title">Phase 1: Cold-Tolerant Kickoff</h5>
-                  <p className="phase-desc">
-                    Direct-sow radishes, spinach, butterhead lettuce, and early peas. These cool-season
-                    greens withstand light morning frosts and yield tender early harvests.
-                  </p>
-                </div>
-              </div>
 
-              <div className="timeline-phase">
-                <div className="phase-marker">
-                  <div className="phase-dot"></div>
-                  <div className="phase-line"></div>
+                <div className="flex gap-3">
+                  <div className="flex flex-col items-center">
+                    <div className="w-3.5 h-3.5 rounded-full bg-[#1B4D3E] ring-2 ring-white shadow-xs"></div>
+                    <div className="w-0.5 flex-1 bg-black/15 mt-1"></div>
+                  </div>
+                  <div className="bg-[#F5F4F0] border border-black/10 rounded-md p-3.5 flex-1">
+                    <span className="font-mono text-[11px] font-semibold text-[#A86D3F] uppercase">May - July (Summer Peak)</span>
+                    <h5 className="font-display text-sm sm:text-base font-bold text-[#1A1A1A] my-1">Phase 2: Warm Season Explosion</h5>
+                    <p className="text-xs sm:text-sm text-[#4A4E4A]">Transplant tomatoes, peppers, and basil into grid coordinates. Vertical trellis secures vines while bush beans feed nitrogen.</p>
+                  </div>
                 </div>
-                <div className="phase-content">
-                  <span className="phase-date">May - July (Summer Peak)</span>
-                  <h5 className="phase-title">Phase 2: Warm Season Explosion</h5>
-                  <p className="phase-desc">
-                    Transplant tomatoes, peppers, and basil into designated grid coordinates.
-                    Vertical trellis secures indeterminate vines while bush beans enrich root-zone
-                    nitrogen.
-                  </p>
-                </div>
-              </div>
 
-              <div className="timeline-phase">
-                <div className="phase-marker">
-                  <div className="phase-dot"></div>
-                </div>
-                <div className="phase-content">
-                  <span className="phase-date">August - November (Fall Succession)</span>
-                  <h5 className="phase-title">Phase 3: The Second Harvest</h5>
-                  <p className="phase-desc">
-                    As summer crops wind down, sow late-season kale, winter carrots, and garlic
-                    cloves. Heavy root mulch provides sweet winter harvest through freezing weather.
-                  </p>
+                <div className="flex gap-3">
+                  <div className="flex flex-col items-center">
+                    <div className="w-3.5 h-3.5 rounded-full bg-[#1B4D3E] ring-2 ring-white shadow-xs"></div>
+                  </div>
+                  <div className="bg-[#F5F4F0] border border-black/10 rounded-md p-3.5 flex-1">
+                    <span className="font-mono text-[11px] font-semibold text-[#A86D3F] uppercase">August - November (Fall Succession)</span>
+                    <h5 className="font-display text-sm sm:text-base font-bold text-[#1A1A1A] my-1">Phase 3: The Second Harvest</h5>
+                    <p className="text-xs sm:text-sm text-[#4A4E4A]">Sow late-season kale, winter carrots, and garlic cloves. Heavy mulch provides continuous winter harvest through freezing weather.</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

@@ -2,20 +2,20 @@ const sharp = require('sharp');
 const path = require('path');
 
 async function optimize() {
-  const input = path.join(__dirname, 'assets', 'blueprint-bundle-mockup.jpg');
+  const input = path.join(__dirname, 'public', 'assets', 'blueprint-closeup-mockup.jpg');
   
   // 1200w WebP
   await sharp(input)
-    .webp({ quality: 84 })
-    .toFile(path.join(__dirname, 'assets', 'blueprint-bundle-mockup.webp'));
-  console.log('Created blueprint-bundle-mockup.webp');
+    .webp({ quality: 86 })
+    .toFile(path.join(__dirname, 'public', 'assets', 'blueprint-closeup-mockup.webp'));
+  console.log('Created public/assets/blueprint-closeup-mockup.webp');
 
   // 640w WebP for mobile screens
   await sharp(input)
     .resize(640)
-    .webp({ quality: 82 })
-    .toFile(path.join(__dirname, 'assets', 'blueprint-bundle-mockup-mobile.webp'));
-  console.log('Created blueprint-bundle-mockup-mobile.webp');
+    .webp({ quality: 85 })
+    .toFile(path.join(__dirname, 'public', 'assets', 'blueprint-closeup-mockup-mobile.webp'));
+  console.log('Created public/assets/blueprint-closeup-mockup-mobile.webp');
 }
 
 optimize().catch(err => {

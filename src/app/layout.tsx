@@ -28,21 +28,23 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://terrabblueprints.com'),
-  title: 'Raised Garden Bed Blueprint & Layout Bundle ($19) | Instant PDF Download',
+  metadataBase: new URL('https://raisedgardenbedslayout.com'),
+  title: 'Raised Garden Beds Layout & Blueprint Bundle ($19) | Instant PDF Download',
   description:
-    'Stop guessing garden spacing. High-yield raised bed blueprints, exact square-foot companion grids, and DIY build plans ready to print in seconds.',
+    'Stop guessing garden spacing. High-yield modular raised bed layouts, exact square-foot companion grids, and DIY lumber cut lists ready to print in seconds.',
   openGraph: {
     type: 'website',
-    title: 'Raised Garden Bed Blueprint & Layout Bundle',
+    url: 'https://raisedgardenbedslayout.com',
+    siteName: 'Raised Garden Beds Layout',
+    title: 'Raised Garden Beds Layout & Blueprint Bundle ($19)',
     description:
-      'High-yield blueprints, companion planting grids, and lumber cut lists ready to print.',
+      'High-yield modular bed layouts, square-foot companion grids, and instant DIY lumber cut lists ready to print.',
     images: [
       {
-        url: '/assets/blueprint-bundle-mockup.webp',
+        url: '/assets/blueprint-closeup-mockup.webp',
         width: 1200,
-        height: 896,
-        alt: 'Raised Garden Bed Blueprint and Layout Bundle Mockup',
+        height: 900,
+        alt: 'Raised Garden Beds Layout Blueprint Bundle Close-up Mockup',
       },
     ],
   },
@@ -59,7 +61,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${robotoMono.variable}`}>
-      <body>{children}</body>
+      <body className="bg-[#FBFBFA] text-[#1A1A1A] antialiased selection:bg-[#1B4D3E] selection:text-white pb-20 md:pb-0">
+        {children}
+      </body>
     </html>
   );
 }
