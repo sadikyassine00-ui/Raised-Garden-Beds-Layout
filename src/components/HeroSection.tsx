@@ -13,26 +13,24 @@ export function HeroSection() {
           {/* Main Copy & Action Column */}
           <div className="w-full lg:col-span-7 flex flex-col gap-3.5 sm:gap-4">
             
-            {/* Credible Trust Badge (Replacing unverified reviews) */}
-            <div className="inline-flex items-center gap-2 bg-white border border-black/10 rounded-full px-3 py-1 text-xs font-medium text-[#4A4E4A] shadow-sm w-fit">
+            {/* Kicker Eyebrow */}
+            <div className="inline-flex items-center gap-2 bg-white border border-[#1B4D3E]/20 rounded-full px-3 py-1 text-xs font-medium text-[#1B4D3E] shadow-xs w-fit">
               <svg className="w-3.5 h-3.5 text-[#1B4D3E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
-              <span>
-                <strong className="text-[#1B4D3E] font-semibold">Spring 2026 Edition</strong>
-                <span className="opacity-40 mx-1.5">/</span>
-                <span>30-Day Money-Back Guarantee</span>
+              <span className="font-semibold tracking-wide">
+                The Modular Raised Bed Blueprint &amp; Layout Bundle &middot; Spring 2026 Edition
               </span>
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A1A] leading-[1.12] tracking-tight">
-              Stop Guessing Your Garden Spacing.
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1A1A1A] leading-[1.12] tracking-tight">
+              Build Once. Plant with Zero Guesswork. Harvest 2x More in Half the Space.
             </h1>
 
             {/* Concise Subhead */}
             <p className="text-base sm:text-lg text-[#4A4E4A] leading-snug sm:leading-relaxed">
-              High-yield modular bed layouts, square-foot companion grids, and instant DIY lumber cut lists ready to print in seconds.
+              Modular blueprints, companion planting grids, and instant lumber cut lists ready to print in seconds.
             </p>
 
             {/* Tight Value Points */}
@@ -57,17 +55,29 @@ export function HeroSection() {
               </li>
             </ul>
 
-            {/* Price & Primary CTA Block */}
-            <div className="flex flex-col gap-2.5 pt-1">
-              <div className="flex items-baseline gap-2.5">
-                <span className="font-mono text-3xl sm:text-4xl font-bold text-[#1B4D3E] leading-none">$19</span>
-                <span className="font-mono text-base sm:text-lg text-[#717571] line-through">$47</span>
-                <span className="bg-[#E8F3EE] text-[#1B4D3E] font-mono text-xs font-semibold px-2 py-0.5 rounded border border-[#1B4D3E]/20">
-                  Save 60%
-                </span>
-              </div>
+            {/* Loss-Aversion Price Callout */}
+            <div className="bg-[#FAF7F2] border border-[#C88A58]/30 rounded-md p-3 text-xs sm:text-sm text-[#5C3A1E] leading-relaxed">
+              <strong className="text-[#A86D3F] font-bold">Lumber Waste Insurance:</strong> A single miscut cedar board at Home Depot costs $24. This $19 complete bundle saves you from $150+ in wasted lumber and failed crops.
+            </div>
 
-              {/* Full-Width Primary CTA Button */}
+            {/* Visual Comparison Block: DIY Guesswork vs The Blueprint Pack */}
+            <div className="grid grid-cols-2 gap-2 text-xs border border-black/10 rounded-md overflow-hidden bg-white">
+              <div className="p-2.5 bg-[#FAF9F7] border-r border-black/10 flex flex-col gap-1">
+                <span className="font-bold text-[#717571] uppercase tracking-wider text-[10.5px]">DIY Guesswork</span>
+                <span className="text-[#9E3333] font-semibold">$160 &ndash; $220 in lumber</span>
+                <span className="text-[#717571] text-[11px]">$40 in stunted seeds</span>
+                <span className="text-[#717571] text-[11px] leading-tight">Risk of warped corners &amp; root rot</span>
+              </div>
+              <div className="p-2.5 bg-[#E8F3EE]/60 flex flex-col gap-1">
+                <span className="font-bold text-[#1B4D3E] uppercase tracking-wider text-[10.5px]">The Blueprint Pack</span>
+                <span className="text-[#1B4D3E] font-bold text-sm">$19 One-Time</span>
+                <span className="text-[#1B4D3E] text-[11px] font-medium">$110 exact lumber cuts</span>
+                <span className="text-[#1B4D3E] text-[11px] leading-tight">Zero wasted boards &amp; 2x harvest</span>
+              </div>
+            </div>
+
+            {/* Primary Action Button */}
+            <div className="flex flex-col gap-2 pt-0.5">
               <button
                 id="hero-cta-btn"
                 onClick={handleCheckout}
@@ -90,58 +100,64 @@ export function HeroSection() {
                 </svg>
               </button>
 
-              {/* Payment Provider Badges Positioned Directly Beneath Hero Button */}
+              {/* Express Payment Badges Directly Beneath Button */}
               <div className="flex flex-wrap items-center justify-center gap-1.5 pt-0.5 text-[#4A4E4A]">
-                <span className="text-[11px] font-mono font-medium text-[#717571] uppercase tracking-wider mr-1">
+                <span className="text-[11px] font-medium text-[#717571] uppercase tracking-wider mr-1">
                   Express Pay:
                 </span>
-                <span className="bg-white border border-black/10 rounded px-1.5 py-0.5 text-[11px] font-mono font-semibold text-[#1A1A1A] shadow-xs">
+                <span className="bg-white border border-black/10 rounded px-1.5 py-0.5 text-[11px] font-semibold text-[#1A1A1A] shadow-xs">
                   Apple Pay
                 </span>
-                <span className="bg-white border border-black/10 rounded px-1.5 py-0.5 text-[11px] font-mono font-semibold text-[#1A1A1A] shadow-xs">
+                <span className="bg-white border border-black/10 rounded px-1.5 py-0.5 text-[11px] font-semibold text-[#1A1A1A] shadow-xs">
                   Google Pay
                 </span>
-                <span className="bg-white border border-black/10 rounded px-1.5 py-0.5 text-[11px] font-mono font-semibold text-[#1A1A1A] shadow-xs">
+                <span className="bg-white border border-black/10 rounded px-1.5 py-0.5 text-[11px] font-semibold text-[#1A1A1A] shadow-xs">
                   Visa
                 </span>
-                <span className="bg-white border border-black/10 rounded px-1.5 py-0.5 text-[11px] font-mono font-semibold text-[#1A1A1A] shadow-xs">
+                <span className="bg-white border border-black/10 rounded px-1.5 py-0.5 text-[11px] font-semibold text-[#1A1A1A] shadow-xs">
                   Mastercard
                 </span>
               </div>
 
-              {/* Reassurance Microcopy */}
+              {/* Instant Delivery Reassurance */}
               <div className="flex items-center justify-center gap-1.5 text-xs text-[#717571] text-center pt-0.5">
                 <svg className="w-3.5 h-3.5 text-[#1B4D3E] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
                   <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-                <span>Instant PDF download <span className="opacity-40">/</span> One-time payment <span className="opacity-40">/</span> Lifetime updates</span>
+                <span>Instant PDF download &middot; The 100% Bountiful Harvest Guarantee &middot; Lifetime updates</span>
               </div>
             </div>
 
           </div>
 
-          {/* Product Visual Showcase: High-Contrast Zoomed-in Mockup */}
+          {/* Product Visual Showcase: High-Contrast Zoomed-in Mockup with Concreteness Overlay */}
           <div className="w-full lg:col-span-5 flex flex-col">
             <div className="relative bg-white border border-[#1B4D3E]/20 rounded-lg p-2 shadow-md overflow-hidden">
-              <Image
-                src="/assets/blueprint-closeup-mockup.webp"
-                alt="High-contrast zoomed-in 4x8 architectural raised garden bed blueprint with square foot companion grid and lumber cut list"
-                className="w-full h-auto rounded object-cover"
-                width={1200}
-                height={900}
-                priority
-                sizes="(max-width: 768px) 100vw, 480px"
-              />
+              <div className="relative">
+                <Image
+                  src="/assets/blueprint-closeup-mockup.webp"
+                  alt="High-contrast architectural raised garden bed blueprint with square foot companion grid and lumber cut list"
+                  className="w-full h-auto rounded object-cover"
+                  width={1200}
+                  height={900}
+                  priority
+                  sizes="(max-width: 768px) 100vw, 480px"
+                />
+                {/* Tangibility Micro-Label Overlay */}
+                <div className="absolute bottom-2 left-2 right-2 bg-[#123329]/90 backdrop-blur-xs text-[#FBFBFA] text-[11.5px] font-medium py-1.5 px-2.5 rounded text-center shadow-md border border-white/10">
+                  Print at home on standard 8.5x11 paper or load into iPad
+                </div>
+              </div>
               <div className="flex flex-wrap gap-1.5 pt-2 px-1">
-                <span className="font-mono text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
+                <span className="text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
                   4×8 Layout Blueprint
                 </span>
-                <span className="font-mono text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
+                <span className="text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
                   Companion Guide
                 </span>
-                <span className="font-mono text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
+                <span className="text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
                   Lumber Cut List
                 </span>
               </div>

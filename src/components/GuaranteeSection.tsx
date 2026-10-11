@@ -43,10 +43,10 @@ export function GuaranteeSection() {
                 </svg>
               </div>
               <h3 className="font-display text-base sm:text-lg font-bold text-[#1A1A1A]">
-                30-Day Harvest Guarantee
+                The 100% Bountiful Harvest Guarantee
               </h3>
               <p className="text-xs sm:text-sm text-[#4A4E4A] leading-relaxed">
-                If these blueprints don't save you hours of planning and help you grow a more productive garden, send a quick email for a 100% refund.
+                If you build your bed and don't feel these plans saved you hours of frustration and doubled your garden organization, email us for an immediate refund—and keep the PDF files forever.
               </p>
             </div>
           </div>

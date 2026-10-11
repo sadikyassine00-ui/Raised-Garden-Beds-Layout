@@ -23,9 +23,9 @@ export function BottomConversion() {
               Save time, prevent overcrowded beds, and harvest twice as much fresh organic produce this season.
             </p>
 
-            <div className="flex items-baseline justify-center gap-3 my-1">
-              <span className="font-mono text-3xl sm:text-4xl font-bold text-[#F8D8BE]">$19</span>
-              <span className="font-mono text-lg text-[#7E968E] line-through">$47</span>
+            <div className="flex items-baseline justify-center gap-2.5 my-1">
+              <span className="text-3xl sm:text-4xl font-bold text-[#F8D8BE]">$19</span>
+              <span className="text-xs text-[#C7D4CF] uppercase tracking-wider">One-time investment</span>
             </div>
 
             {/* Bottom Primary Action Button */}
@@ -51,7 +51,7 @@ export function BottomConversion() {
             </button>
 
             <p className="text-xs sm:text-sm text-[#A3B5AE]">
-              Instant PDF Download <span className="opacity-40">/</span> 30-Day Money-Back Guarantee <span className="opacity-40">/</span> Lifetime Updates
+              Instant PDF Download &middot; The 100% Bountiful Harvest Guarantee &middot; Lifetime Updates
             </p>
 
             {/* Trust and Payment Badges */}

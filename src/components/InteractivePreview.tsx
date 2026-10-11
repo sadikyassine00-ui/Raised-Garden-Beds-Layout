@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { PLANT_DATA, CropKey } from '@/lib/plantData';
+import { handleCheckout } from '@/lib/checkout';
 
 type TabKey = 'tab-layout' | 'tab-companion' | 'tab-cutlist' | 'tab-timeline';
 
@@ -404,6 +405,29 @@ export function InteractivePreview() {
               </div>
             </div>
           )}
+
+          {/* Secondary Action Inside Sample Preview Interface */}
+          <div className="bg-[#FAF7F2] border-t border-black/10 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="text-center sm:text-left">
+              <span className="font-bold text-sm sm:text-base text-[#1A1A1A] block">
+                Want all 4 modular bed blueprints, cut lists &amp; companion charts?
+              </span>
+              <span className="text-xs text-[#717571]">
+                Instant printable PDF download &middot; Standard US Letter &amp; A4 formats
+              </span>
+            </div>
+            <button
+              onClick={handleCheckout}
+              className="inline-flex items-center justify-center gap-2 bg-[#1B4D3E] hover:bg-[#143A2F] active:scale-[0.985] text-white font-semibold text-sm sm:text-base py-3 px-6 rounded-md shadow-sm transition-all whitespace-nowrap min-h-[48px]"
+              aria-label="Get All 4 Printable Layout Packs ($19)"
+            >
+              <span>Get All 4 Printable Layout Packs ($19)</span>
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>

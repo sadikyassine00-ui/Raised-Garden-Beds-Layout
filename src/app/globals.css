@@ -26,12 +26,43 @@
   --hairline: rgba(26, 26, 26, 0.08);
   --hairline-strong: rgba(26, 26, 26, 0.15);
   
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: 'Roboto Mono', monospace;
+  /* Sole Typography System: Futura */
+  --font-display: var(--font-futura), 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: var(--font-futura), 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-futura), 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Futura-Book.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/Futura-Medium.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/Futura-Demi.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/Futura-Bold.woff') format('woff');
+  font-display: swap;
 }
 
 html {
+  font-family: var(--font-futura), 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: var(--ink-primary);
@@ -43,10 +74,14 @@ html {
 }
 
 body {
-  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-futura), 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink-primary);
   background-color: var(--bg-canvas);
   min-height: 100vh;
+}
+
+*, button, input, select, textarea, pre, code, h1, h2, h3, h4, h5, h6, p, span, li, a {
+  font-family: var(--font-futura), 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 /* Ensure hit targets on mobile interactive elements are >= 48px */

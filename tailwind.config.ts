@@ -39,9 +39,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ['var(--font-display)', 'serif'],
-        sans: ['var(--font-body)', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
+        display: ['var(--font-futura)', 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'],
+        sans: ['var(--font-futura)', 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'],
+        mono: ['var(--font-futura)', 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'],
+        futura: ['var(--font-futura)', 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'],
       },
     },
   },
