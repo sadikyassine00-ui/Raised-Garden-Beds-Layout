@@ -37,7 +37,7 @@ const FAQS: FaqItem[] = [
     id: 5,
     question: 'Is this a one-time payment or a subscription?',
     answer:
-      'It is a single, one-time payment of $19. There are no recurring fees or hidden charges. You keep the digital files forever and receive all future updates for free.',
+      'It is a single, one-time payment of $9. There are no recurring fees or hidden charges. You keep the digital files forever and receive all future updates for free.',
   },
 ];
 

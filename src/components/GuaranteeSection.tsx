@@ -46,7 +46,7 @@ export function GuaranteeSection() {
                 The 100% Bountiful Harvest Guarantee
               </h3>
               <p className="text-xs sm:text-sm text-[#4A4E4A] leading-relaxed">
-                If you build your bed and don't feel these plans saved you hours of frustration and doubled your garden organization, email us for an immediate refund—and keep the PDF files forever.
+                If you build your bed and don't feel these plans saved you hours of frustration and doubled your garden organization, email us for an immediate refund, and keep the PDF files forever.
               </p>
             </div>
           </div>

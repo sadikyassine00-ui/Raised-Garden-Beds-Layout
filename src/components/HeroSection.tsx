@@ -57,7 +57,7 @@ export function HeroSection() {
 
             {/* Loss-Aversion Price Callout */}
             <div className="bg-[#FAF7F2] border border-[#C88A58]/30 rounded-md p-3 text-xs sm:text-sm text-[#5C3A1E] leading-relaxed">
-              <strong className="text-[#A86D3F] font-bold">Lumber Waste Insurance:</strong> A single miscut cedar board at Home Depot costs $24. This $19 complete bundle saves you from $150+ in wasted lumber and failed crops.
+              <strong className="text-[#A86D3F] font-bold">Lumber Waste Insurance:</strong> A single miscut cedar board at Home Depot costs $24. This $9 complete bundle saves you from $150+ in wasted lumber and failed crops.
             </div>
 
             {/* Visual Comparison Block: DIY Guesswork vs The Blueprint Pack */}
@@ -70,7 +70,7 @@ export function HeroSection() {
               </div>
               <div className="p-2.5 bg-[#E8F3EE]/60 flex flex-col gap-1">
                 <span className="font-bold text-[#1B4D3E] uppercase tracking-wider text-[10.5px]">The Blueprint Pack</span>
-                <span className="text-[#1B4D3E] font-bold text-sm">$19 One-Time</span>
+                <span className="text-[#1B4D3E] font-bold text-sm">$9 One-Time</span>
                 <span className="text-[#1B4D3E] text-[11px] font-medium">$110 exact lumber cuts</span>
                 <span className="text-[#1B4D3E] text-[11px] leading-tight">Zero wasted boards &amp; 2x harvest</span>
               </div>
@@ -82,9 +82,9 @@ export function HeroSection() {
                 id="hero-cta-btn"
                 onClick={handleCheckout}
                 className="w-full flex items-center justify-center gap-2 bg-[#1B4D3E] hover:bg-[#143A2F] active:scale-[0.985] text-white font-semibold text-base sm:text-lg py-3.5 px-6 rounded-md shadow-md hover:shadow-lg transition-all duration-150 min-h-[52px]"
-                aria-label="Get The Blueprint Pack for $19"
+                aria-label="Get The Blueprint Pack for $9"
               >
-                <span>Get The Blueprint Pack ($19)</span>
+                <span>Get The Blueprint Pack ($9)</span>
                 <svg
                   className="w-5 h-5 shrink-0"
                   viewBox="0 0 24 24"

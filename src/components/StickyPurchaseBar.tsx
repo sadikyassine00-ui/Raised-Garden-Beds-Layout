@@ -54,16 +54,16 @@ export function StickyPurchaseBar() {
             Blueprint &amp; Layout Bundle
           </span>
           <div className="flex items-baseline gap-1.5">
-            <span className="font-mono text-base sm:text-lg font-bold text-[#1B4D3E]">$19</span>
+            <span className="font-mono text-base sm:text-lg font-bold text-[#1B4D3E]">$9</span>
             <span className="text-[11px] text-[#717571]">(Instant PDF)</span>
           </div>
         </div>
         <button
           onClick={handleCheckout}
           className="inline-flex items-center justify-center gap-1.5 bg-[#1B4D3E] hover:bg-[#143A2F] active:scale-[0.985] text-white text-sm sm:text-base font-semibold px-4 py-2.5 rounded-md shadow-sm transition-colors min-h-[48px] whitespace-nowrap"
-          aria-label="Buy Now for $19"
+          aria-label="Buy Now for $9"
         >
-          <span>Buy Now ($19)</span>
+          <span>Buy Now ($9)</span>
           <svg
             className="w-4 h-4 shrink-0"
             viewBox="0 0 24 24"

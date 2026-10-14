@@ -24,7 +24,7 @@ export function BottomConversion() {
             </p>
 
             <div className="flex items-baseline justify-center gap-2.5 my-1">
-              <span className="text-3xl sm:text-4xl font-bold text-[#F8D8BE]">$19</span>
+              <span className="text-3xl sm:text-4xl font-bold text-[#F8D8BE]">$9</span>
               <span className="text-xs text-[#C7D4CF] uppercase tracking-wider">One-time investment</span>
             </div>
 
@@ -32,9 +32,9 @@ export function BottomConversion() {
             <button
               onClick={handleCheckout}
               className="w-full max-w-md flex items-center justify-center gap-2 bg-[#C88A58] hover:bg-[#D69766] active:scale-[0.985] text-[#1A1208] font-bold text-base sm:text-lg py-3.5 px-6 rounded-md shadow-md transition-all duration-150 min-h-[52px]"
-              aria-label="Get The Blueprint Pack for $19"
+              aria-label="Get The Blueprint Pack for $9"
             >
-              <span>Get The Blueprint Pack ($19)</span>
+              <span>Get The Blueprint Pack ($9)</span>
               <svg
                 className="w-5 h-5 shrink-0"
                 viewBox="0 0 24 24"

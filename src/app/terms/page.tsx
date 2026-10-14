@@ -76,7 +76,7 @@ export default function TermsOfServicePage() {
                   Welcome to <strong>raisedgardenbedslayout.com</strong> (referred to herein as &ldquo;the Website&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;). We are a specialized provider of digital informational products, woodworking schematics, and agricultural planning guides tailored for home gardeners and DIY builders.
                 </p>
                 <p>
-                  Our primary product offering is the <strong>Raised Garden Bed Blueprint and Layout Bundle</strong> (the &ldquo;Digital Product&rdquo;), sold for a <strong>single, one-time fee of nineteen dollars ($19.00 USD)</strong>. The bundle encompasses printable high-resolution PDF architectural cut lists, modular dimensional lumber configurations (4&prime;&times;8&prime;, 4&prime;&times;4&prime;, 2&prime;&times;8&prime;, and 8&prime;&times;8&prime; L-shaped beds), square-foot companion planting matrices, soil volume calculation formulas, and seasonal succession sowing calendars.
+                  Our primary product offering is the <strong>Raised Garden Bed Blueprint and Layout Bundle</strong> (the &ldquo;Digital Product&rdquo;), sold for a <strong>single, one-time fee of nine dollars ($9.00 USD)</strong>. The bundle encompasses printable high-resolution PDF architectural cut lists, modular dimensional lumber configurations (4&prime;&times;8&prime;, 4&prime;&times;4&prime;, 2&prime;&times;8&prime;, and 8&prime;&times;8&prime; L-shaped beds), square-foot companion planting matrices, soil volume calculation formulas, and seasonal succession sowing calendars.
                 </p>
                 <p>
                   By accessing this website, placing an order, or downloading the digital materials, you acknowledge that you have read, understood, and agreed to be legally bound by these Terms of Service. If you do not agree with any part of these terms, please do not use our website or purchase our products.
@@ -173,7 +173,7 @@ export default function TermsOfServicePage() {
               </h2>
               <div className="text-sm sm:text-base text-[#4A4E4A] leading-relaxed space-y-3">
                 <p>
-                  All contents of raisedgardenbedslayout.com and the Raised Garden Bed Blueprint Bundle—including but not limited to architectural drawings, 3D render mockups, square-foot layout grids, companion planting algorithms, soil volume calculators, lumber cut sheets, instructional text, graphics, logos, and website code—are the exclusive intellectual property of raisedgardenbedslayout.com and are protected under United States and international copyright, trademark, and unfair competition laws.
+                  All contents of raisedgardenbedslayout.com and the Raised Garden Bed Blueprint Bundle (including but not limited to architectural drawings, 3D render mockups, square-foot layout grids, companion planting algorithms, soil volume calculators, lumber cut sheets, instructional text, graphics, logos, and website code) are the exclusive intellectual property of raisedgardenbedslayout.com and are protected under United States and international copyright, trademark, and unfair competition laws.
                 </p>
                 <p>
                   Any unauthorized duplication, modification, reverse-engineering, or commercial exploitation constitutes a direct infringement of intellectual property and will be pursued to the fullest extent permitted by law.
@@ -219,7 +219,7 @@ export default function TermsOfServicePage() {
                   <strong>Agricultural &amp; Yield Variability:</strong> Garden yield, plant growth, companion effects, and pest prevention depend on local climate conditions, hardiness zones, sunlight exposure, soil amendments, watering consistency, and seed viability beyond our control. We make no warranty that every gardener will achieve identical harvest yields.
                 </p>
                 <p>
-                  <strong>Limitation of Liability:</strong> To the maximum extent permitted under applicable law, in no event shall raisedgardenbedslayout.com, its owners, authors, affiliates, or Paddle.com be liable for any indirect, incidental, special, consequential, or punitive damages, or bodily injury or property damage arising out of your reliance on or execution of the build plans. In all cases, our aggregate total liability is strictly limited to the amount you paid for the product ($19.00 USD).
+                  <strong>Limitation of Liability:</strong> To the maximum extent permitted under applicable law, in no event shall raisedgardenbedslayout.com, its owners, authors, affiliates, or Paddle.com be liable for any indirect, incidental, special, consequential, or punitive damages, or bodily injury or property damage arising out of your reliance on or execution of the build plans. In all cases, our aggregate total liability is strictly limited to the amount you paid for the product ($9.00 USD).
                 </p>
               </div>
             </section>

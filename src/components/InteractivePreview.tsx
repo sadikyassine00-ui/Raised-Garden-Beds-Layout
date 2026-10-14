@@ -419,9 +419,9 @@ export function InteractivePreview() {
             <button
               onClick={handleCheckout}
               className="inline-flex items-center justify-center gap-2 bg-[#1B4D3E] hover:bg-[#143A2F] active:scale-[0.985] text-white font-semibold text-sm sm:text-base py-3 px-6 rounded-md shadow-sm transition-all whitespace-nowrap min-h-[48px]"
-              aria-label="Get All 4 Printable Layout Packs ($19)"
+              aria-label="Get All 4 Printable Layout Packs ($9)"
             >
-              <span>Get All 4 Printable Layout Packs ($19)</span>
+              <span>Get All 4 Printable Layout Packs ($9)</span>
               <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14"></path>
                 <path d="M12 5l7 7-7 7"></path>

@@ -88,7 +88,7 @@ export default function RefundPolicyPage() {
               </h2>
               <div className="text-sm sm:text-base text-[#4A4E4A] leading-relaxed space-y-3">
                 <p>
-                  At <strong>raisedgardenbedslayout.com</strong>, we design our woodworking schematics, square-foot planting grids, and lumber cut lists to be the most practical and accessible garden blueprints available. Our flagship product, the <strong>Raised Garden Bed Blueprint and Layout Bundle ($19.00 USD)</strong>, is created to deliver immediate clarity and eliminate costly lumber mistakes.
+                  At <strong>raisedgardenbedslayout.com</strong>, we design our woodworking schematics, square-foot planting grids, and lumber cut lists to be the most practical and accessible garden blueprints available. Our flagship product, the <strong>Raised Garden Bed Blueprint and Layout Bundle ($9.00 USD)</strong>, is created to deliver immediate clarity and eliminate costly lumber mistakes.
                 </p>
                 <p>
                   Because this is an instant digital product delivered in downloadable PDF format, traditional physical return shipping does not apply. However, we believe in complete fairness: if the blueprints do not meet your expectations, you are fully protected by our straightforward <strong>14-day refund policy</strong>.
@@ -104,7 +104,7 @@ export default function RefundPolicyPage() {
               </h2>
               <div className="text-sm sm:text-base text-[#4A4E4A] leading-relaxed space-y-3">
                 <p>
-                  You are eligible for a complete, 100% refund of your nineteen dollar ($19.00) purchase if you request it within <strong>fourteen (14) calendar days</strong> from your original purchase date.
+                  You are eligible for a complete, 100% refund of your nine dollar ($9.00) purchase if you request it within <strong>fourteen (14) calendar days</strong> from your original purchase date.
                 </p>
                 <p>
                   Valid reasons for requesting a refund include, but are not limited to:

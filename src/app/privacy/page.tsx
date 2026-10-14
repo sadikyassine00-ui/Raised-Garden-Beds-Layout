@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
                   Paddle Merchant of Record Payment Protection
                 </h2>
                 <p className="text-xs sm:text-sm text-[#1A1A1A] leading-relaxed font-medium">
-                  Financial details—such as complete credit card numbers, CVVs, and direct billing instruments—are collected and processed exclusively by Paddle.com as our Merchant of Record and are NEVER stored or seen by our servers.
+                  Financial details (such as complete credit card numbers, CVVs, and direct billing instruments) are collected and processed exclusively by Paddle.com as our Merchant of Record and are NEVER stored or seen by our servers.
                 </p>
                 <p className="text-xs text-[#4A4E4A] leading-relaxed">
                   Paddle operates under PCI-DSS Level 1 compliance standards, the highest certification in the global payments industry.
@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
               </h2>
               <div className="text-sm sm:text-base text-[#4A4E4A] leading-relaxed space-y-3">
                 <p>
-                  At <strong>raisedgardenbedslayout.com</strong> (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), we take consumer data privacy seriously. We operate under a strict principle of data minimization: we collect only the essential information strictly necessary to fulfill your order of the <strong>Raised Garden Bed Blueprint and Layout Bundle ($19.00 USD)</strong>, verify digital delivery, and provide customer support.
+                  At <strong>raisedgardenbedslayout.com</strong> (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), we take consumer data privacy seriously. We operate under a strict principle of data minimization: we collect only the essential information strictly necessary to fulfill your order of the <strong>Raised Garden Bed Blueprint and Layout Bundle ($9.00 USD)</strong>, verify digital delivery, and provide customer support.
                 </p>
                 <p>
                   This Privacy Policy is designed to comply with international consumer privacy frameworks, including the European Union General Data Protection Regulation (<strong>GDPR</strong>), the UK GDPR, and the California Consumer Privacy Act of 2018 as amended by the California Privacy Rights Act (<strong>CCPA/CPRA</strong>).
@@ -118,7 +118,7 @@ export default function PrivacyPolicyPage() {
                   All commercial transactions are processed through <strong>Paddle.com</strong>, our third-party Merchant of Record. Paddle is a globally trusted merchant infrastructure provider operating across the United States, United Kingdom, and European Union.
                 </p>
                 <p>
-                  When checking out, your sensitive financial data—including your 16-digit credit card number, expiration date, card security code (CVV), or bank identifiers—is transmitted directly from your web browser to Paddle&rsquo;s encrypted payment vaults.
+                  When checking out, your sensitive financial data (including your 16-digit credit card number, expiration date, card security code, or bank identifiers) is transmitted directly from your web browser to Paddle&rsquo;s encrypted payment vaults.
                 </p>
                 <div className="p-4 bg-[#1B4D3E]/[0.05] border border-[#1B4D3E]/20 rounded-lg text-xs sm:text-sm text-[#1A1A1A] space-y-1">
                   <p className="font-semibold text-[#1B4D3E]">Our Zero Financial Storage Guarantee:</p>

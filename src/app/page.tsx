@@ -10,10 +10,12 @@ import { FaqAccordion } from '@/components/FaqAccordion';
 import { BottomConversion } from '@/components/BottomConversion';
 import { Footer } from '@/components/Footer';
 import { CheckoutTesterModal } from '@/components/CheckoutTesterModal';
+import { PaddleInitializer } from '@/components/PaddleInitializer';
 
 export default function LandingPage() {
   return (
     <>
+      <PaddleInitializer />
       <AnnouncementStrip />
       <BrandHeader />
       <main>

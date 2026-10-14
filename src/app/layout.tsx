@@ -38,17 +38,28 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://raisedgardenbedslayout.com'),
-  title: 'Raised Garden Beds Layout & Blueprint Bundle ($19) | Instant PDF Download',
+  title: 'Raised Garden Beds Layout & Blueprint Bundle ($9) | Instant PDF Download',
   description:
     'Stop guessing garden spacing. High-yield modular raised bed layouts, exact square-foot companion grids, and DIY lumber cut lists ready to print in seconds.',
   alternates: {
     canonical: 'https://raisedgardenbedslayout.com',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     url: 'https://raisedgardenbedslayout.com',
     siteName: 'Raised Garden Beds Layout',
-    title: 'Raised Garden Beds Layout & Blueprint Bundle ($19)',
+    title: 'Raised Garden Beds Layout & Blueprint Bundle ($9)',
     description:
       'High-yield modular bed layouts, square-foot companion grids, and instant DIY lumber cut lists ready to print.',
     images: [
@@ -62,13 +73,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Raised Garden Beds Layout & Blueprint Bundle ($19)',
+    title: 'Raised Garden Beds Layout & Blueprint Bundle ($9)',
     description:
       'High-yield modular bed layouts, square-foot companion grids, and instant DIY lumber cut lists ready to print.',
     images: ['/assets/blueprint-closeup-mockup.webp'],
   },
   other: {
-    'product:price:amount': '19.00',
+    'product:price:amount': '9.00',
     'product:price:currency': 'USD',
   },
 };
@@ -88,7 +99,7 @@ const jsonLdProduct = {
     '@type': 'Offer',
     url: 'https://raisedgardenbedslayout.com',
     priceCurrency: 'USD',
-    price: '19.00',
+    price: '9.00',
     priceValidUntil: '2026-12-31',
     availability: 'https://schema.org/InStock',
     itemCondition: 'https://schema.org/NewCondition',
@@ -136,7 +147,7 @@ const jsonLdFaq = {
       name: 'Is this a one-time payment or a subscription?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'It is a single, one-time payment of $19 with zero recurring fees and lifetime updates included.',
+        text: 'It is a single, one-time payment of $9 with zero recurring fees and lifetime updates included.',
       },
     },
   ],
@@ -160,6 +171,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={futura.variable}>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdProduct) }}

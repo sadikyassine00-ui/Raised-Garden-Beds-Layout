@@ -9,7 +9,7 @@
   // Configurable Shopify checkout URL
   // Can be overridden via URL parameter: ?checkout_url=https://store.myshopify.com/cart/...
   // Or via window.SHOPIFY_CHECKOUT_URL
-  const DEFAULT_CHECKOUT_URL = 'https://checkout.shopify.com/store/raised-garden-bed-pack?variant=bundle_19';
+  const DEFAULT_CHECKOUT_URL = 'https://checkout.shopify.com/store/raised-garden-bed-pack?variant=bundle_9';
 
   function getCheckoutUrl() {
     const params = new URLSearchParams(window.location.search);
