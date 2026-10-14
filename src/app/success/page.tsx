@@ -1,20 +1,22 @@
+'use client';
+
 import React, { Suspense } from 'react';
-import type { Metadata } from 'next';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { LegalHeader } from '@/components/LegalHeader';
 import { Footer } from '@/components/Footer';
 
-export const metadata: Metadata = {
-  title: 'Order Confirmation & Download | Raised Garden Beds Layout',
-  description:
-    'Thank you for your purchase. Access and download your Raised Garden Bed Blueprint and Layout Bundle instantly.',
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
-
 function SuccessContent() {
+  const searchParams = useSearchParams();
+  const transactionId =
+    searchParams.get('transaction_id') ||
+    searchParams.get('checkout_id') ||
+    'demo';
+  const customerEmail = searchParams.get('email');
+
+  const downloadApiUrl = `/api/download?transaction_id=${encodeURIComponent(transactionId)}`;
+  const permanentPageUrl = `/download?transaction_id=${encodeURIComponent(transactionId)}`;
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FBFBFA]">
       <LegalHeader currentDocument="Order Confirmation" />
@@ -48,7 +50,7 @@ function SuccessContent() {
               Thank You! Your Blueprint Pack is Ready
             </h1>
             <p className="text-sm sm:text-base text-[#4A4E4A] max-w-lg mx-auto leading-relaxed mb-8">
-              Your transaction of <strong>$9.00 USD</strong> was processed securely by our Merchant of Record, Paddle.com. A full purchase receipt and backup download link have been sent to your email.
+              Your transaction of <strong>$9.00 USD</strong> was processed securely by our Merchant of Record, Paddle.com. A full purchase receipt and permanent download link have also been sent to your email{customerEmail ? ` (${customerEmail})` : ''}.
             </p>
 
             {/* Instant Download Action Box */}
@@ -71,11 +73,21 @@ function SuccessContent() {
                 </div>
               </div>
 
+              {/* Transaction ID if present */}
+              {transactionId && transactionId !== 'demo' && (
+                <div className="py-3 border-b border-[#C88A58]/15 flex items-center justify-between text-xs">
+                  <span className="text-[#717571]">Transaction ID:</span>
+                  <code className="font-mono bg-white border border-[#C88A58]/25 px-2 py-0.5 rounded text-[#1B4D3E]">
+                    {transactionId}
+                  </code>
+                </div>
+              )}
+
               {/* Download Buttons */}
               <div className="pt-6 flex flex-col sm:flex-row items-center gap-3">
                 <a
-                  href="/assets/blueprint-closeup-mockup.webp"
-                  download="Raised-Garden-Bed-Blueprint-Bundle.pdf"
+                  href={downloadApiUrl}
+                  download="Raised_Garden_Bed_Blueprints.pdf"
                   className="w-full sm:flex-1 inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-lg bg-[#1B4D3E] hover:bg-[#143A2F] active:scale-[0.985] text-white font-semibold text-sm sm:text-base transition-colors shadow-sm"
                 >
                   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -83,14 +95,14 @@ function SuccessContent() {
                     <polyline points="7 10 12 15 17 10"></polyline>
                     <line x1="12" y1="15" x2="12" y2="3"></line>
                   </svg>
-                  <span>Download Blueprint Bundle (US Letter &amp; A4 PDF)</span>
+                  <span>Download Blueprint Bundle (PDF)</span>
                 </a>
 
                 <Link
-                  href="/"
+                  href={permanentPageUrl}
                   className="w-full sm:w-auto inline-flex items-center justify-center py-4 px-5 rounded-lg border border-black/15 hover:bg-black/5 text-[#4A4E4A] font-medium text-xs sm:text-sm transition-colors"
                 >
-                  Return to Home
+                  View Permanent Page
                 </Link>
               </div>
             </div>

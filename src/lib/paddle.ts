@@ -25,7 +25,7 @@ export async function getPaddleInstance(): Promise<Paddle | null> {
           const checkoutData = event.data;
           const checkoutId = checkoutData?.id || '';
           const customerEmail = checkoutData?.customer?.email || '';
-          window.location.href = `/success?checkout_id=${encodeURIComponent(checkoutId)}&email=${encodeURIComponent(customerEmail)}`;
+          window.location.href = `/download?transaction_id=${encodeURIComponent(checkoutId)}&email=${encodeURIComponent(customerEmail)}`;
         }
       },
       checkout: {
@@ -36,7 +36,7 @@ export async function getPaddleInstance(): Promise<Paddle | null> {
           showAddDiscounts: false,
           showAddTaxId: false,
           allowLogout: false,
-          successUrl: '/success',
+          successUrl: '/download',
         },
       },
     }).then((instance) => {
@@ -62,7 +62,7 @@ export interface OpenCheckoutOptions {
 export async function openPaddleCheckout(options?: OpenCheckoutOptions): Promise<void> {
   const paddle = await getPaddleInstance();
   const priceId = options?.priceId || PADDLE_PRICE_ID;
-  const successUrl = options?.successUrl || (typeof window !== 'undefined' ? `${window.location.origin}/success` : '/success');
+  const successUrl = options?.successUrl || (typeof window !== 'undefined' ? `${window.location.origin}/download` : '/download');
 
   if (paddle) {
     paddle.Checkout.open({
