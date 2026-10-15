@@ -110,20 +110,37 @@ export async function sendDeliveryEmail({
   `;
 
   try {
-    const { data, error } = await resend.emails.send({
+    let result = await resend.emails.send({
       from: fromEmail,
       to,
       subject: 'Your Raised Garden Bed Blueprints & Layout Bundle ($9 Order Confirmed)',
       html: htmlContent,
     });
 
-    if (error) {
-      console.error('[Resend] Error sending delivery email:', error);
-      return { success: false, error: error.message };
+    // If custom domain is not yet verified in Resend, fall back to testing sender
+    if (
+      result.error &&
+      (result.error.message?.toLowerCase().includes('domain') ||
+        result.error.message?.toLowerCase().includes('verify'))
+    ) {
+      console.warn(
+        `[Resend] Domain verification pending for "${fromEmail}". Falling back to onboarding@resend.dev.`
+      );
+      result = await resend.emails.send({
+        from: 'Raised Garden Beds <onboarding@resend.dev>',
+        to,
+        subject: 'Your Raised Garden Bed Blueprints & Layout Bundle ($9 Order Confirmed)',
+        html: htmlContent,
+      });
     }
 
-    console.log('[Resend] Delivery email sent successfully. ID:', data?.id);
-    return { success: true, id: data?.id };
+    if (result.error) {
+      console.error('[Resend] Error sending delivery email:', result.error);
+      return { success: false, error: result.error.message };
+    }
+
+    console.log('[Resend] Delivery email sent successfully. ID:', result.data?.id);
+    return { success: true, id: result.data?.id };
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
     console.error('[Resend] Unexpected exception sending delivery email:', message);
