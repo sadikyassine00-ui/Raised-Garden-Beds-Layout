@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { DownloadStorageSync } from '@/components/DownloadStorageSync';
+
 interface DownloadPageProps {
   searchParams: Promise<{
     transaction_id?: string;
@@ -45,6 +47,11 @@ export default async function DownloadPage(props: DownloadPageProps) {
 
       <main className="flex-1 py-10 sm:py-16 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
+          <DownloadStorageSync
+            currentTransactionId={transactionId}
+            currentEmail={customerEmail || verification?.customerEmail}
+          />
+
           {transactionId ? (
             verification && verification.verified ? (
               /* State 2A: Transaction present & verified as paid -> Instant Success, NO input box */
