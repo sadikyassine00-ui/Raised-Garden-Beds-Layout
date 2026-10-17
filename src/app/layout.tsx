@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const futura = localFont({
@@ -191,6 +192,7 @@ export default function RootLayout({
       </head>
       <body className="bg-[#FBFBFA] text-[#1A1A1A] antialiased selection:bg-[#1B4D3E] selection:text-white pb-20 md:pb-0 font-futura">
         {children}
+        <Analytics />
       </body>
     </html>
   );
