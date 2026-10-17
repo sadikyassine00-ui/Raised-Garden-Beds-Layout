@@ -121,7 +121,7 @@ export default async function DownloadPage(props: DownloadPageProps) {
                   <div className="pt-6 flex flex-col sm:flex-row items-center gap-3">
                     <a
                       href={downloadApiUrl}
-                      download="Raised_Garden_Bed_Blueprints.pdf"
+                      download="The_Raised_Garden_Bed_Blueprint_and_Layout_Bundle_Complete.pdf"
                       className="w-full sm:flex-1 inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-lg bg-[#1B4D3E] hover:bg-[#143A2F] active:scale-[0.985] text-white font-semibold text-base transition-all shadow-md hover:shadow-lg"
                     >
                       <svg

@@ -87,7 +87,7 @@ function SuccessContent() {
               <div className="pt-6 flex flex-col sm:flex-row items-center gap-3">
                 <a
                   href={downloadApiUrl}
-                  download="Raised_Garden_Bed_Blueprints.pdf"
+                  download="The_Raised_Garden_Bed_Blueprint_and_Layout_Bundle_Complete.pdf"
                   className="w-full sm:flex-1 inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-lg bg-[#1B4D3E] hover:bg-[#143A2F] active:scale-[0.985] text-white font-semibold text-sm sm:text-base transition-colors shadow-sm"
                 >
                   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

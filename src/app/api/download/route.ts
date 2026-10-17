@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'node:fs';
 import path from 'node:path';
+import { Readable } from 'node:stream';
 import { verifyPaddleTransaction } from '@/lib/paddleServer';
 
 export const dynamic = 'force-dynamic';
+export const maxDuration = 60;
+
+const DEFAULT_PDF_NAME = 'The_Raised_Garden_Bed_Blueprint_and_Layout_Bundle_Complete.pdf';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -37,8 +41,21 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // 3. Locate secure private PDF file
-  const securePath = path.join(process.cwd(), 'private', 'Raised_Garden_Bed_Blueprints.pdf');
+  // Locate secure private PDF file
+  const privateDir = path.join(process.cwd(), 'private');
+  let securePath = path.join(privateDir, DEFAULT_PDF_NAME);
+  let downloadFilename = DEFAULT_PDF_NAME;
+
+  if (!fs.existsSync(securePath)) {
+    if (fs.existsSync(privateDir)) {
+      const files = fs.readdirSync(privateDir);
+      const pdf = files.find((f) => f.toLowerCase().endsWith('.pdf'));
+      if (pdf) {
+        securePath = path.join(privateDir, pdf);
+        downloadFilename = pdf;
+      }
+    }
+  }
 
   if (!fs.existsSync(securePath)) {
     console.error(`[Download Route] Secure PDF not found at path: ${securePath}`);
@@ -52,19 +69,21 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const fileBuffer = fs.readFileSync(securePath);
+    const stats = fs.statSync(securePath);
+    const nodeStream = fs.createReadStream(securePath);
+    const webStream = Readable.toWeb(nodeStream);
 
-    return new NextResponse(fileBuffer, {
+    return new NextResponse(webStream as unknown as ReadableStream, {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename="Raised_Garden_Bed_Blueprints.pdf"',
-        'Content-Length': fileBuffer.length.toString(),
+        'Content-Disposition': `attachment; filename="${downloadFilename}"`,
+        'Content-Length': stats.size.toString(),
         'Cache-Control': 'private, no-cache, no-store, must-revalidate',
       },
     });
   } catch (err: unknown) {
-    console.error('[Download Route] Error reading PDF file buffer:', err);
+    console.error('[Download Route] Error streaming PDF file:', err);
     return NextResponse.json(
       { error: 'Server error', message: 'Failed to stream download file.' },
       { status: 500 }
