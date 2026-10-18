@@ -20,9 +20,14 @@ export function handleCheckout(e?: React.MouseEvent): void {
       return;
     }
 
+    const discountParam = params.get('discount') || params.get('coupon') || params.get('code');
+    const discountId =
+      discountParam?.toUpperCase() === 'LIVETEST100' ? 'dsc_01m586jpd7a4bnp3ec3sb38231' : undefined;
+
     // Trigger official Paddle Checkout overlay
     openPaddleCheckout({
       priceId: PADDLE_PRICE_ID,
+      ...(discountId ? { discountId } : {}),
     });
   }
 }

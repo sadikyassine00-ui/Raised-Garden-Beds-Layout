@@ -117,7 +117,7 @@ export async function getPaddleInstance(): Promise<Paddle | null> {
           variant: 'one-page',
           displayMode: 'overlay',
           theme: 'light',
-          showAddDiscounts: false,
+          showAddDiscounts: true,
           showAddTaxId: false,
           allowLogout: false,
         },
@@ -140,6 +140,7 @@ export interface OpenCheckoutOptions {
   priceId?: string;
   email?: string;
   successUrl?: string;
+  discountId?: string;
 }
 
 export async function openPaddleCheckout(options?: OpenCheckoutOptions): Promise<void> {
@@ -156,11 +157,12 @@ export async function openPaddleCheckout(options?: OpenCheckoutOptions): Promise
     paddle.Checkout.open({
       items: [{ priceId, quantity: 1 }],
       ...(options?.email ? { customer: { email: options.email } } : {}),
+      ...(options?.discountId ? { discountId: options.discountId } : {}),
       settings: {
         variant: 'one-page',
         displayMode: 'overlay',
         theme: 'light',
-        showAddDiscounts: false,
+        showAddDiscounts: true,
         showAddTaxId: false,
         allowLogout: false,
       },
