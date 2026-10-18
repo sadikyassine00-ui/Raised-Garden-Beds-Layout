@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function BrandHeader() {
   return (
-    <div className="py-3 px-4 sm:px-6 border-b border-black/[0.08] bg-[#FBFBFA]">
+    <div className="py-2 sm:py-2.5 px-4 sm:px-6 border-b border-black/[0.08] bg-[#FBFBFA]">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         <Link
           href="/"

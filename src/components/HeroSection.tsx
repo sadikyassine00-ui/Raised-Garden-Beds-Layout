@@ -6,9 +6,9 @@ import { handleCheckout } from '@/lib/checkout';
 
 export function HeroSection() {
   return (
-    <section className="pt-2 pb-6 sm:pt-4 sm:pb-10" aria-label="Product Overview">
+    <section className="pt-1.5 pb-6 sm:pt-3 sm:pb-8" aria-label="Product Overview">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-3 sm:gap-y-3.5 lg:gap-x-8 items-start lg:items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-2.5 sm:gap-y-3 lg:gap-x-8 items-start lg:items-center">
 
           {/* 1. Main Headline & Subheadline (Mobile: Order 1 | Desktop: Col 1-7, Row 1) */}
           <div className="order-1 lg:col-span-7 lg:col-start-1 lg:row-start-1 flex flex-col gap-1.5 sm:gap-2">
@@ -23,59 +23,27 @@ export function HeroSection() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-2xl sm:text-3xl lg:text-[38px] font-bold text-[#1A1A1A] leading-[1.14] tracking-tight">
+            <h1 className="font-display text-2xl sm:text-3xl lg:text-[36px] font-bold text-[#1A1A1A] leading-[1.12] tracking-tight">
               Build Once. Plant with Zero Guesswork. Harvest 2x More in Half the Space.
             </h1>
 
             {/* Concise Subhead */}
-            <p className="text-sm sm:text-base lg:text-[17px] text-[#4A4E4A] leading-snug sm:leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-[16px] text-[#4A4E4A] leading-snug sm:leading-relaxed">
               Modular blueprints, companion planting grids, and instant lumber cut lists ready to print in seconds.
             </p>
           </div>
 
-          {/* 2. Hero Product Mockup Image (Mobile: Order 2 | Desktop: Col 8-12, Rows 1-5) */}
-          <div className="order-2 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-5 w-full flex flex-col my-1 lg:my-0">
-            <div className="relative bg-white border border-[#1B4D3E]/20 rounded-lg p-2 shadow-md overflow-hidden max-w-md mx-auto lg:max-w-none">
-              <div className="relative overflow-hidden rounded">
-                <Image
-                  src="/assets/hero-image.webp"
-                  alt="High-contrast architectural raised garden bed blueprint pack with square foot companion grid, cut list, and modular configurations"
-                  className="w-full h-auto max-h-[460px] sm:max-h-[520px] lg:max-h-[540px] rounded object-cover"
-                  width={1200}
-                  height={1607}
-                  priority
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 440px"
-                />
-                {/* Tangibility Micro-Label Overlay */}
-                <div className="absolute bottom-2 left-2 right-2 bg-[#123329]/90 backdrop-blur-xs text-[#FBFBFA] text-[11px] sm:text-[11.5px] font-medium py-1.5 px-2.5 rounded text-center shadow-md border border-white/10">
-                  Print at home on standard 8.5x11 paper or load into iPad
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-1.5 pt-2 px-0.5">
-                <span className="text-[10.5px] sm:text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
-                  4×8 Layout Blueprint
-                </span>
-                <span className="text-[10.5px] sm:text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
-                  Companion Guide
-                </span>
-                <span className="text-[10.5px] sm:text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
-                  Lumber Cut List
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* 3. Pricing & Green CTA Button (Mobile: Order 3 | Desktop: Col 1-7, Row 4) */}
-          <div className="order-3 lg:col-span-7 lg:col-start-1 lg:row-start-4 flex flex-col gap-1.5 pt-0.5">
-            {/* Mobile pricing teaser directly above CTA button */}
-            <div className="flex items-center justify-between px-0.5 md:hidden">
+          {/* 2. Pricing & Primary Payment CTA Button (Mobile: Order 2 | Desktop: Col 1-7, Row 2 - ABOVE THE FOLD LOCK) */}
+          <div className="order-2 lg:col-span-7 lg:col-start-1 lg:row-start-2 flex flex-col gap-1.5 pt-0.5">
+            {/* Pricing teaser directly above CTA button */}
+            <div className="flex items-center justify-between px-0.5">
               <span className="text-xs font-semibold text-[#1B4D3E] uppercase tracking-wider">
                 Instant Access Bundle
               </span>
               <span className="text-sm font-bold text-[#1B4D3E]">
                 <s className="text-[#717571] font-normal text-xs mr-1">$29</s>$9{' '}
                 <span className="text-[10.5px] font-normal text-[#1B4D3E]/90">
-                  (Launch Price)
+                  (Limited Launch Pricing)
                 </span>
               </span>
             </div>
@@ -103,8 +71,8 @@ export function HeroSection() {
             </button>
           </div>
 
-          {/* 4. Micro-Trust Line (Mobile: Order 4 | Desktop: Col 1-7, Row 5) */}
-          <div className="order-4 lg:col-span-7 lg:col-start-1 lg:row-start-5 flex flex-col gap-1">
+          {/* 3. Micro-Trust Line (Mobile: Order 3 | Desktop: Col 1-7, Row 3 - ABOVE THE FOLD LOCK) */}
+          <div className="order-3 lg:col-span-7 lg:col-start-1 lg:row-start-3 flex flex-col gap-1 pb-1 lg:pb-0">
             {/* Express Payment Badges */}
             <div className="flex flex-wrap items-center justify-center gap-1.5 text-[#4A4E4A]">
               <span className="text-[10.5px] sm:text-[11px] font-medium text-[#717571] uppercase tracking-wider mr-0.5">
@@ -135,8 +103,40 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* 5. Value Bullets & Lumber Waste Insurance Callout Box (Mobile: Order 5 | Desktop: Col 1-7, Row 2) */}
-          <div className="order-5 lg:col-span-7 lg:col-start-1 lg:row-start-2 flex flex-col gap-2">
+          {/* 4. Hero Product Mockup Image (Mobile: Order 4 | Desktop: Col 8-12, Rows 1-5) */}
+          <div className="order-4 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-5 w-full flex flex-col my-1 lg:my-0">
+            <div className="relative bg-white border border-[#1B4D3E]/20 rounded-lg p-2 shadow-md overflow-hidden max-w-md mx-auto lg:max-w-none">
+              <div className="relative overflow-hidden rounded">
+                <Image
+                  src="/assets/hero-image.webp"
+                  alt="High-contrast architectural raised garden bed blueprint pack with square foot companion grid, cut list, and modular configurations"
+                  className="w-full h-auto max-h-[300px] sm:max-h-[380px] lg:max-h-[500px] rounded object-cover"
+                  width={1200}
+                  height={1607}
+                  priority
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 440px"
+                />
+                {/* Tangibility Micro-Label Overlay */}
+                <div className="absolute bottom-2 left-2 right-2 bg-[#123329]/90 backdrop-blur-xs text-[#FBFBFA] text-[11px] sm:text-[11.5px] font-medium py-1.5 px-2.5 rounded text-center shadow-md border border-white/10">
+                  Print at home on standard 8.5x11 paper or load into iPad
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-1.5 pt-2 px-0.5">
+                <span className="text-[10.5px] sm:text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
+                  4×8 Layout Blueprint
+                </span>
+                <span className="text-[10.5px] sm:text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
+                  Companion Guide
+                </span>
+                <span className="text-[10.5px] sm:text-[11px] font-medium bg-[#F5F4F0] text-[#4A4E4A] border border-black/10 px-2 py-0.5 rounded">
+                  Lumber Cut List
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* 5. Value Bullets & Lumber Waste Insurance Callout Box (Mobile: Order 5 | Desktop: Col 1-7, Row 4) */}
+          <div className="order-5 lg:col-span-7 lg:col-start-1 lg:row-start-4 flex flex-col gap-2 pt-1">
             {/* Tight Value Points */}
             <ul className="flex flex-col gap-1.5 text-xs sm:text-[13.5px] text-[#1A1A1A]">
               <li className="flex items-start gap-2">
@@ -165,8 +165,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* 6. Full DIY vs Blueprint Comparison Card (Mobile: Order 6 | Desktop: Col 1-7, Row 3) */}
-          <div className="order-6 lg:col-span-7 lg:col-start-1 lg:row-start-3">
+          {/* 6. Full DIY vs Blueprint Comparison Card (Mobile: Order 6 | Desktop: Col 1-7, Row 5) */}
+          <div className="order-6 lg:col-span-7 lg:col-start-1 lg:row-start-5 pt-0.5">
             <div className="grid grid-cols-2 gap-2 text-xs border border-black/10 rounded-md overflow-hidden bg-white">
               <div className="p-2 sm:p-2.5 bg-[#FAF9F7] border-r border-black/10 flex flex-col gap-0.5 sm:gap-1">
                 <span className="font-bold text-[#717571] uppercase tracking-wider text-[10px] sm:text-[10.5px]">DIY Guesswork</span>
