@@ -1,13 +1,13 @@
 import { initializePaddle, type Paddle, type Environments } from '@paddle/paddle-js';
 
 export const PADDLE_CLIENT_TOKEN =
-  process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'test_98aa57dcfa6f02bcb4fbd2ad3a3';
+  process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'live_50f07b6dbecaece813b1442da3b';
 
 export const PADDLE_ENV: Environments =
-  (process.env.NEXT_PUBLIC_PADDLE_ENV as Environments) || 'sandbox';
+  (process.env.NEXT_PUBLIC_PADDLE_ENV as Environments) || 'production';
 
 export const PADDLE_PRICE_ID =
-  process.env.NEXT_PUBLIC_PADDLE_PRICE_ID || 'pri_01m4xs8x8ap3wabtdq3mafnazt';
+  process.env.NEXT_PUBLIC_PADDLE_PRICE_ID || 'pri_01m584r1p64ycre8ryg6h24rg1';
 
 let paddleInstance: Paddle | null = null;
 let initPromise: Promise<Paddle | null> | null = null;
@@ -17,6 +17,10 @@ function handleCheckoutSuccess(checkoutData: any) {
   if (typeof window === 'undefined') return;
 
   const checkoutId = checkoutData?.id || checkoutData?.transaction_id || '';
+  const customerId =
+    checkoutData?.customer?.id ||
+    checkoutData?.details?.customer?.id ||
+    '';
   const customerEmail =
     checkoutData?.customer?.email ||
     checkoutData?.details?.customer?.email ||
@@ -34,6 +38,10 @@ function handleCheckoutSuccess(checkoutData: any) {
       localStorage.setItem('rgb_transaction_id', checkoutId);
       sessionStorage.setItem('rgb_txn_timestamp', Date.now().toString());
       localStorage.setItem('rgb_txn_timestamp', Date.now().toString());
+      if (customerId) {
+        sessionStorage.setItem('rgb_customer_id', customerId);
+        localStorage.setItem('rgb_customer_id', customerId);
+      }
       if (customerEmail) {
         sessionStorage.setItem('rgb_customer_email', customerEmail);
         localStorage.setItem('rgb_customer_email', customerEmail);
@@ -79,9 +87,15 @@ export async function getPaddleInstance(): Promise<Paddle | null> {
   if (paddleInstance) return paddleInstance;
 
   if (!initPromise) {
+    const storedCustomerId =
+      typeof window !== 'undefined'
+        ? sessionStorage.getItem('rgb_customer_id') || localStorage.getItem('rgb_customer_id')
+        : null;
+
     initPromise = initializePaddle({
       token: PADDLE_CLIENT_TOKEN,
       environment: PADDLE_ENV,
+      ...(storedCustomerId ? { pwCustomer: { id: storedCustomerId } } : {}),
       eventCallback: (event) => {
         if (event.name === 'checkout.completed') {
           handleCheckoutSuccess(event.data);

@@ -5,7 +5,47 @@ import { EventName } from '@paddle/paddle-node-sdk';
 
 export const dynamic = 'force-dynamic';
 
+let cachedIps: string[] = [];
+let lastIpFetchTime = 0;
+const IP_CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24-hour cache
+
+async function getPaddleAllowedIps(): Promise<string[]> {
+  const now = Date.now();
+  if (cachedIps.length > 0 && now - lastIpFetchTime < IP_CACHE_TTL_MS) {
+    return cachedIps;
+  }
+  try {
+    const res = await fetch('https://api.paddle.com/ips');
+    if (res.ok) {
+      const json = await res.json();
+      const cidrs = json.data?.ipv4_cidrs || [];
+      cachedIps = cidrs.map((cidr: string) => cidr.replace('/32', '').trim());
+      lastIpFetchTime = now;
+      return cachedIps;
+    }
+  } catch (err) {
+    console.warn('[Paddle Webhook] Failed to fetch live Paddle IPs:', err);
+  }
+  return cachedIps;
+}
+
 export async function POST(request: NextRequest) {
+  // 1. IP Allowlist Security Check in Production
+  const isProduction = process.env.NEXT_PUBLIC_PADDLE_ENV === 'production';
+  if (isProduction) {
+    const clientIp =
+      request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+      request.headers.get('x-real-ip');
+
+    if (clientIp) {
+      const allowedIps = await getPaddleAllowedIps();
+      if (allowedIps.length > 0 && !allowedIps.includes(clientIp)) {
+        console.warn(`[Paddle Webhook] Rejected request from unauthorized IP: ${clientIp}`);
+        return NextResponse.json({ error: 'Unauthorized IP address' }, { status: 403 });
+      }
+    }
+  }
+
   const signature = request.headers.get('paddle-signature') || '';
   const rawBody = await request.text();
   const webhookSecret = process.env.PADDLE_NOTIFICATION_WEBHOOK_SECRET || '';
@@ -18,7 +58,7 @@ export async function POST(request: NextRequest) {
   let eventData: any = null;
   const paddle = getPaddleServerInstance();
 
-  // 1. Verify HMAC signature if secret and SDK are available
+  // 2. Verify HMAC signature if secret and SDK are available
   if (paddle && webhookSecret && signature) {
     try {
       eventData = await paddle.webhooks.unmarshal(rawBody, webhookSecret, signature);
@@ -45,7 +85,7 @@ export async function POST(request: NextRequest) {
   const eventType = eventData?.eventType || eventData?.event_type;
   console.log(`[Paddle Webhook] Received event: ${eventType} (ID: ${eventData?.eventId || eventData?.event_id})`);
 
-  // 2. Handle transaction.completed
+  // 3. Handle transaction.completed & transaction.paid
   if (
     eventType === EventName.TransactionCompleted ||
     eventType === 'transaction.completed' ||
@@ -89,6 +129,6 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  // 3. Fast 200 OK acknowledgment to prevent Paddle timeout retries
+  // 4. Fast 200 OK acknowledgment to prevent Paddle timeout retries
   return NextResponse.json({ received: true });
 }
