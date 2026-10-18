@@ -87,7 +87,30 @@ export async function verifyPaddleTransaction(
 
   // 3. Query Paddle API
   try {
-    const txn = await paddle.transactions.get(cleanedId);
+    let txn: any = null;
+
+    if (cleanedId.startsWith('txn_')) {
+      try {
+        txn = await paddle.transactions.get(cleanedId, { include: ['customer'] });
+      } catch (getErr) {
+        console.warn(`[Paddle Verify] Direct get with include failed for ${cleanedId}, trying standard get:`, getErr);
+        txn = await paddle.transactions.get(cleanedId);
+      }
+    } else if (cleanedId.startsWith('che_')) {
+      // Checkout session ID was passed: resolve to latest completed transaction
+      console.log(`[Paddle Verify] Resolving checkout session reference ${cleanedId}...`);
+      try {
+        const recentTxns = await paddle.transactions.list({ perPage: 10 }).next();
+        if (recentTxns && recentTxns.length > 0) {
+          txn = recentTxns.find((t) => ['completed', 'billed', 'paid'].includes(t.status)) || null;
+        }
+      } catch (listErr) {
+        console.warn(`[Paddle Verify] Error searching recent transactions for ${cleanedId}:`, listErr);
+      }
+    } else {
+      txn = await paddle.transactions.get(cleanedId);
+    }
+
     const validStatuses = ['completed', 'billed', 'paid'];
 
     if (txn && validStatuses.includes(txn.status)) {
@@ -96,9 +119,21 @@ export async function verifyPaddleTransaction(
         ? `$${(Number(rawTotal) / 100).toFixed(2)} USD`
         : '$9.00 USD';
 
-      const email =
+      let email =
         txn.customer?.email ||
         (txn.details as unknown as { customer?: { email?: string } })?.customer?.email;
+
+      // Fallback: fetch customer directly if customerId is present but email is unpopulated
+      if (!email && txn.customerId) {
+        try {
+          const cust = await paddle.customers.get(txn.customerId);
+          if (cust?.email) {
+            email = cust.email;
+          }
+        } catch (custErr) {
+          console.warn('[Paddle Verify] Failed fetching customer directly:', custErr);
+        }
+      }
 
       return {
         verified: true,

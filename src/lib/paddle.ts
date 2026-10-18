@@ -16,7 +16,15 @@ let initPromise: Promise<Paddle | null> | null = null;
 function handleCheckoutSuccess(checkoutData: any) {
   if (typeof window === 'undefined') return;
 
-  const checkoutId = checkoutData?.id || checkoutData?.transaction_id || '';
+  // IMPORTANT: Prioritize transaction_id (starts with txn_) for Paddle verification.
+  // checkoutData.id in Paddle.js checkout.completed is the checkout session ID (che_...).
+  const checkoutId =
+    checkoutData?.transaction_id ||
+    checkoutData?.details?.transaction_id ||
+    checkoutData?.data?.transaction_id ||
+    (checkoutData?.id?.startsWith('txn_') ? checkoutData?.id : '') ||
+    checkoutData?.id ||
+    '';
   const customerId =
     checkoutData?.customer?.id ||
     checkoutData?.details?.customer?.id ||
