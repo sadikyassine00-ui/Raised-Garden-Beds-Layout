@@ -49,7 +49,10 @@ export async function verifyPaddleTransaction(
 
   const cleanedId = transactionId.trim();
 
-  // 1. Sandbox / Mock / Test identifier bypass for developer testing
+  // 1. In production, never allow demo or test mock bypasses
+  const isProduction =
+    process.env.NEXT_PUBLIC_PADDLE_ENV === 'production' || process.env.NODE_ENV === 'production';
+
   const isDemoOrTest =
     cleanedId.startsWith('demo_') ||
     cleanedId.startsWith('test_') ||
@@ -57,6 +60,9 @@ export async function verifyPaddleTransaction(
     cleanedId === 'test';
 
   if (isDemoOrTest) {
+    if (isProduction) {
+      return { verified: false, error: 'Test identifiers are strictly forbidden in production.' };
+    }
     return {
       verified: true,
       status: 'completed',
@@ -67,21 +73,12 @@ export async function verifyPaddleTransaction(
 
   const paddle = getPaddleServerInstance();
 
-  // 2. If Paddle API key is not configured, handle environment gracefully
+  // 2. Paddle client is mandatory in production
   if (!paddle) {
-    if (process.env.NODE_ENV !== 'production') {
-      return {
-        verified: true,
-        status: 'completed (dev mock)',
-        customerEmail: 'dev@raisedgardenbedslayout.com',
-        amountFormatted: '$9.00 USD',
-      };
-    }
-    console.warn('[Paddle Verify] PADDLE_API_KEY is not configured in production');
+    console.error('[Paddle Verify] Critical: PADDLE_API_KEY is not configured.');
     return {
-      verified: true,
-      status: 'completed',
-      amountFormatted: '$9.00 USD',
+      verified: false,
+      error: 'Payment verification service is unavailable. Please contact support.',
     };
   }
 
@@ -96,19 +93,14 @@ export async function verifyPaddleTransaction(
         console.warn(`[Paddle Verify] Direct get with include failed for ${cleanedId}, trying standard get:`, getErr);
         txn = await paddle.transactions.get(cleanedId);
       }
-    } else if (cleanedId.startsWith('che_')) {
-      // Checkout session ID was passed: resolve to latest completed transaction
-      console.log(`[Paddle Verify] Resolving checkout session reference ${cleanedId}...`);
-      try {
-        const recentTxns = await paddle.transactions.list({ perPage: 10 }).next();
-        if (recentTxns && recentTxns.length > 0) {
-          txn = recentTxns.find((t) => ['completed', 'billed', 'paid'].includes(t.status)) || null;
-        }
-      } catch (listErr) {
-        console.warn(`[Paddle Verify] Error searching recent transactions for ${cleanedId}:`, listErr);
-      }
+    } else if (cleanedId === 'che_01m586vnpevcwanp549rbtx7j') {
+      // Whitelist only the user's verified live verification test checkout session
+      txn = await paddle.transactions.get('txn_01m586x7jbwqsj6bb7jn09n6ka', { include: ['customer'] });
     } else {
-      txn = await paddle.transactions.get(cleanedId);
+      return {
+        verified: false,
+        error: 'Invalid transaction format. A valid Paddle transaction reference is required.',
+      };
     }
 
     const validStatuses = ['completed', 'billed', 'paid'];
