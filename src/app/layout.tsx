@@ -65,9 +65,9 @@ export const metadata: Metadata = {
       'High-yield modular bed layouts, square-foot companion grids, and instant DIY lumber cut lists ready to print.',
     images: [
       {
-        url: '/assets/blueprint-closeup-mockup.webp',
+        url: '/assets/hero-image.webp',
         width: 1200,
-        height: 900,
+        height: 1607,
         alt: 'Raised Garden Beds Layout Blueprint Bundle Close-up Mockup',
       },
     ],
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     title: 'Raised Garden Beds Layout & Blueprint Bundle ($9)',
     description:
       'High-yield modular bed layouts, square-foot companion grids, and instant DIY lumber cut lists ready to print.',
-    images: ['/assets/blueprint-closeup-mockup.webp'],
+    images: ['/assets/hero-image.webp'],
   },
   other: {
     'product:price:amount': '9.00',
@@ -89,7 +89,7 @@ const jsonLdProduct = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: 'Raised Garden Bed Blueprint and Layout Bundle',
-  image: 'https://raisedgardenbedslayout.com/assets/blueprint-closeup-mockup.webp',
+  image: 'https://raisedgardenbedslayout.com/assets/hero-image.webp',
   description:
     'Complete digital blueprint bundle for high-yield raised beds: 4 modular bed plans, companion planting matrix, lumber cut lists, and soil calculations.',
   brand: {
