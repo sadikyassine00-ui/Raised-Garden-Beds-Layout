@@ -79,6 +79,11 @@ export const metadata: Metadata = {
       'High-yield modular bed layouts, square-foot companion grids, and instant DIY lumber cut lists ready to print.',
     images: ['/assets/hero-image.webp'],
   },
+  verification: {
+    other: {
+      'p:domain_verify': 'b81fcdda3a340419fa4db58f5888987a',
+    },
+  },
   other: {
     'product:price:amount': '9.00',
     'product:price:currency': 'USD',
