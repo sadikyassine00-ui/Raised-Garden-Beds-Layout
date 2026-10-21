@@ -59,6 +59,20 @@ function handleCheckoutSuccess(checkoutData: any) {
     }
   }
 
+  // Track Pinterest checkout conversion
+  try {
+    if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
+      window.pintrk('track', 'checkout', {
+        event_id: checkoutId || `checkout_${Date.now()}`,
+        value: 9,
+        order_quantity: 1,
+        currency: 'USD',
+      });
+    }
+  } catch (err) {
+    console.warn('Failed tracking Pinterest checkout in Paddle callback:', err);
+  }
+
   if (checkoutId) {
     try {
       fetch('/api/order-fulfillment', {

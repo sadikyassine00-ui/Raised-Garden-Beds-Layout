@@ -59,6 +59,7 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
+    locale: 'en_US',
     url: 'https://raisedgardenbedslayout.com',
     siteName: 'Raised Garden Beds Layout',
     title: 'Raised Garden Beds Layout & Blueprint Bundle ($9)',
@@ -88,6 +89,12 @@ export const metadata: Metadata = {
   other: {
     'product:price:amount': '9.00',
     'product:price:currency': 'USD',
+    'product:availability': 'in stock',
+    'product:condition': 'new',
+    'product:retailer_item_id': 'rgb-blueprint-bundle-9',
+    'og:price:amount': '9.00',
+    'og:price:currency': 'USD',
+    'og:availability': 'instock',
   },
 };
 
@@ -183,6 +190,15 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta property="og:type" content="product" />
+        <meta property="og:price:amount" content="9.00" />
+        <meta property="og:price:currency" content="USD" />
+        <meta property="og:availability" content="instock" />
+        <meta property="product:price:amount" content="9.00" />
+        <meta property="product:price:currency" content="USD" />
+        <meta property="product:availability" content="in stock" />
+        <meta property="product:condition" content="new" />
+        <meta property="product:retailer_item_id" content="rgb-blueprint-bundle-9" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdProduct) }}
@@ -208,7 +224,8 @@ window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
   r=document.getElementsByTagName("script")[0];
   r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
 pintrk('load', '2612703061551', {em: '<user_email_address>'});
-pintrk('page');`,
+pintrk('page');
+pintrk('track', 'pagevisit', { event_id: 'pagevisit_init' });`,
           }}
         />
         <noscript

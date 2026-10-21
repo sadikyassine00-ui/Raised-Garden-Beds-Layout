@@ -1,10 +1,11 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { LegalHeader } from '@/components/LegalHeader';
 import { Footer } from '@/components/Footer';
+import { trackPinterestCheckout } from '@/lib/pinterest';
 
 function SuccessContent() {
   const searchParams = useSearchParams();
@@ -13,6 +14,15 @@ function SuccessContent() {
     searchParams.get('checkout_id') ||
     'demo';
   const customerEmail = searchParams.get('email');
+
+  useEffect(() => {
+    trackPinterestCheckout({
+      event_id: transactionId && transactionId !== 'demo' ? transactionId : `checkout_${Date.now()}`,
+      value: 9,
+      order_quantity: 1,
+      currency: 'USD',
+    });
+  }, [transactionId]);
 
   const downloadApiUrl = `/api/download?transaction_id=${encodeURIComponent(transactionId)}`;
   const permanentPageUrl = `/download?transaction_id=${encodeURIComponent(transactionId)}`;

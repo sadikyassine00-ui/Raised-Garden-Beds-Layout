@@ -1,5 +1,6 @@
 import React from 'react';
 import { openPaddleCheckout, PADDLE_PRICE_ID, getPaddleInstance } from './paddle';
+import { trackPinterestAddToCart } from './pinterest';
 
 /**
  * Paddle Direct Checkout Trigger
@@ -10,6 +11,13 @@ export function handleCheckout(e?: React.MouseEvent): void {
   }
 
   if (typeof window !== 'undefined') {
+    // Track Pinterest addtocart event
+    trackPinterestAddToCart({
+      value: 9,
+      order_quantity: 1,
+      currency: 'USD',
+    });
+
     const params = new URLSearchParams(window.location.search);
     if (params.get('demo') === '1' || params.get('test') === '1') {
       window.dispatchEvent(
