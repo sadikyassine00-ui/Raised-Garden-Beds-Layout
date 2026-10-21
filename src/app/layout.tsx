@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/next';
+import Script from 'next/script';
 import './globals.css';
 
 const futura = localFont({
@@ -196,6 +197,25 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#FBFBFA] text-[#1A1A1A] antialiased selection:bg-[#1B4D3E] selection:text-white pb-20 md:pb-0 font-futura">
+        <Script
+          id="pinterest-tag"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `!function(e){if(!window.pintrk){window.pintrk = function () {
+window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+  n=window.pintrk;n.queue=[],n.version="3.0";var
+  t=document.createElement("script");t.async=!0,t.src=e;var
+  r=document.getElementsByTagName("script")[0];
+  r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+pintrk('load', '2612703061551', {em: '<user_email_address>'});
+pintrk('page');`,
+          }}
+        />
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<img height="1" width="1" style="display:none;" alt="" src="https://ct.pinterest.com/v3/?event=init&tid=2612703061551&pd[em]=<hashed_email_address>&noscript=1" />`,
+          }}
+        />
         {children}
         <Analytics />
       </body>
